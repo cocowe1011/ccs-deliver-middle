@@ -2,40 +2,5 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.middle.pcs.login.dao.LoginServiceMapper">
 
-    <select id="getValidCode" resultType="java.util.LinkedHashMap">
-        SELECT TOP (1000) [DEPT_ID]
-      ,[DEPT_CODE]
-      ,[DEPT_NAME]
-      ,[DEPT_ALIAS]
-      ,[HOSPITAL_ID]
-      ,[PARENT_DEPT_ID]
-      ,[ACCOUNT_DEPT_ID]
-      ,[INPUT_CODE]
-      ,[INPUT_ALIAS_CODE]
-      ,[FULL_CODE]
-      ,[FULL_ALIAS_CODE]
-      ,[FLAG_INVALID]
-      ,[START_TIME]
-      ,[STOP_TIME]
-      ,[DEPT_CLASS_ID]
-      ,[ORDER_NO]
-      ,[FLAG_REGISTER]
-      ,[DEPT_ADDRESS]
-      ,[OTHER_CODE]
-      ,[FLAG_CAN_INPUT_SLOWLY]
-      ,[DEPTS_GROUP_NO]
-      ,[DEPT_TELEPHONE]
-      ,[DEPT_ADMIN_TELEPHONE]
-      ,[RELATION]
-      ,[REGISTER_CLASS_ID]
-      ,[DEPT_MEMO]
-      ,[OTHER_DEPT_TYPE]
-      ,[ORDER_NO_REGISTER]
-      ,[MATCH_DEPT_ID]
-      ,[AREA_HOSPITAL_ID]
-      ,[chis_id]
-      ,[chis_memo]
-      ,[FLAG_SXJY]
-  FROM [COMM].[COMM].[DEPTS]
-    </select>
+    <select id="getValidCode" resultType="java.util.LinkedHashMap"></select>
 </mapper>
