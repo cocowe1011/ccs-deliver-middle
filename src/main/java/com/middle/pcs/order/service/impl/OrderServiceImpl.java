@@ -22,9 +22,21 @@ public class OrderServiceImpl implements OrderService {
     @Resource
     private OrderServiceMapper orderServiceMapper;
 
-
+    /**
+     * 保存
+     * @return
+     */
     @Override
     public Integer save(OrderMain orderMain) {
         return orderServiceMapper.insert(orderMain);
+    }
+
+    /**
+     * 获取订单列表
+     * @return
+     */
+    @Override
+    public List<OrderMain> getOrderList() {
+        return orderServiceMapper.getOrderList();
     }
 }

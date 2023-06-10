@@ -22,8 +22,22 @@ public class OrderController {
     @Resource
     private OrderService orderService;
 
+    /**
+     * 保存方法
+     * @param orderMain
+     * @return
+     */
     @RequestMapping("/save")
     public ResponseResult<Integer> save(@RequestBody OrderMain orderMain) {
         return ResponseResult.success(orderService.save(orderMain));
+    }
+
+    /**
+     * 或者订单列表
+     * @return
+     */
+    @RequestMapping("/getOrderList")
+    public ResponseResult<List<OrderMain>> getOrderList() {
+        return ResponseResult.success(orderService.getOrderList());
     }
 }

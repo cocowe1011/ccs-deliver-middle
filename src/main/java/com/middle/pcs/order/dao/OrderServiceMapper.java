@@ -15,4 +15,9 @@ import java.util.List;
 @Mapper
 public interface OrderServiceMapper extends BaseMapper<OrderMain> {
 
+    /**
+     * 获取订单列表
+     * @return
+     */
+    List<OrderMain> getOrderList();
 }

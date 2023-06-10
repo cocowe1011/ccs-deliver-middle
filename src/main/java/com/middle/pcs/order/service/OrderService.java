@@ -12,5 +12,16 @@ import java.util.List;
  * @since 2023年06月09日01:31:21
  */
 public interface OrderService {
+    /**
+     * 保存
+     * @param orderMain
+     * @return
+     */
     Integer save(OrderMain orderMain);
+
+    /**
+     * 获取订单列表
+     * @return
+     */
+    List<OrderMain> getOrderList();
 }
