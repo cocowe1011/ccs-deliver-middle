@@ -43,5 +43,6 @@
             order_main.qualified_box_num
         FROM
             dbo.order_main
+        ORDER BY create_time desc
     </select>
 </mapper>
