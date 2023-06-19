@@ -201,5 +201,10 @@ public class OrderMain  {
     * 合格箱数
     */    
     private Integer qualifiedBoxNum;
-    
+
+    /**
+     * 束下速度
+     */
+    private String sxSpeedSet;
+
 }
