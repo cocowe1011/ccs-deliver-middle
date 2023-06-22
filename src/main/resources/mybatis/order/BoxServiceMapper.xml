@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.middle.pcs.order.dao.BoxServiceMapper">
+
+    <select id="getId" resultType="java.lang.Integer">
+        select count(*) boxnum from dbo.box_main
+        where CAST(create_time AS DATE) = CAST(GETDATE() AS DATE)
+    </select>
+</mapper>

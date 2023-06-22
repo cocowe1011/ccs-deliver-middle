@@ -1,13 +1,12 @@
 package com.middle.pcs.order.service.impl;
 
 import com.middle.pcs.order.dao.OrderServiceMapper;
-import com.middle.pcs.order.entity.OrderMain;
+import com.middle.pcs.order.entity.po.OrderMain;
 import com.middle.pcs.order.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
 import java.util.List;
 
 /**

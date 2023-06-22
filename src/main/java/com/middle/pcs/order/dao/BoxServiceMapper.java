@@ -1,10 +1,8 @@
 package com.middle.pcs.order.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.middle.pcs.order.entity.po.OrderMain;
+import com.middle.pcs.order.entity.po.BoxMain;
 import org.apache.ibatis.annotations.Mapper;
-
-import java.util.List;
 
 /**
  * 功能描述: (对外提供预约信息的中台接口)
@@ -12,11 +10,10 @@ import java.util.List;
  * @since 2022年5月13日14:07:01
  */
 @Mapper
-public interface OrderServiceMapper extends BaseMapper<OrderMain> {
-
+public interface BoxServiceMapper extends BaseMapper<BoxMain> {
     /**
-     * 获取订单列表
-     * @return
+     * 获取今日箱子上货数
+     * @return 上货数量
      */
-    List<OrderMain> getOrderList();
+    Integer getId();
 }

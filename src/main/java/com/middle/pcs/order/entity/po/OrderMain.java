@@ -1,8 +1,10 @@
-package com.middle.pcs.order.entity;
+package com.middle.pcs.order.entity.po;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -20,11 +22,13 @@ public class OrderMain  {
     * 主键
     */    
     @TableId
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long orderId;
             
     /**
     * 订单编号
-    */    
+    */
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long orderNo;
                 
     /**
@@ -39,7 +43,8 @@ public class OrderMain  {
                 
     /**
     * 批次编号
-    */    
+    */
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long batchId;
                 
     /**
@@ -201,5 +206,25 @@ public class OrderMain  {
     * 合格箱数
     */    
     private Integer qualifiedBoxNum;
-    
+
+    /**
+     * 束下速度
+     */
+    private String sxSpeedSet;
+
+    /**
+     * 束下速度上限
+     */
+    private String sxSpeedUpperLimit;
+
+    /**
+     * 束下速度下限
+     */
+    private String sxSpeedLowerLimit;
+
+    /**
+     * 订单状态
+     */
+    private Integer orderStatus;
+
 }
