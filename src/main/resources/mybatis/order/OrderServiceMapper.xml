@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.middle.pcs.order.dao.OrderServiceMapper">
+<mapper namespace="com.middle.ccs.order.dao.OrderServiceMapper">
 
-    <select id="getOrderList" resultType="com.middle.pcs.order.entity.po.OrderMain">
+    <select id="getOrderList" resultType="com.middle.ccs.order.entity.po.OrderMain">
         SELECT
             order_main.order_id,
             order_main.order_no,
@@ -46,5 +46,49 @@
         where
              order_status <![CDATA[ < ]]> 400
         ORDER BY create_time desc
+    </select>
+    <select id="getOrderMainReport" resultType="com.middle.ccs.order.entity.po.OrderMain">
+        SELECT
+            order_main.order_id,
+            order_main.order_no,
+            order_main.order_name,
+            order_main.revert_flag,
+            order_main.batch_id,
+            order_main.product_name,
+            order_main.accelerator_k_value,
+            order_main.art_name,
+            order_main.load_method,
+            order_main.path_name,
+            order_main.number_turns,
+            order_main.box_length,
+            order_main.box_width,
+            order_main.box_height,
+            order_main.box_weight,
+            order_main.sl_upper_limit,
+            order_main.sl_set,
+            order_main.gl_upper_limit,
+            order_main.sl_lower_limit,
+            order_main.gl_set,
+            order_main.gl_lower_limit,
+            order_main.sk_upper_limit,
+            order_main.sk_set,
+            order_main.sk_lower_limit,
+            order_main.smpl_upper_limit,
+            order_main.smpl_set,
+            order_main.smpl_lower_limit,
+            order_main.pfn_upper_limit,
+            order_main.pfn_set,
+            order_main.nl_set,
+            order_main.pfn_lower_limit,
+            order_main.nl_upper_limit,
+            order_main.nl_lower_limit,
+            order_main.order_box_num,
+            order_main.eliminate_box_num,
+            order_main.exhibit_box_num,
+            order_main.qualified_box_num
+        FROM
+            dbo.order_main
+        where
+             order_status = 400
     </select>
 </mapper>
