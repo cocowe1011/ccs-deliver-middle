@@ -1,11 +1,14 @@
 package com.middle.ccs.order.controller;
 
 import com.middle.ccs.hander.ResponseResult;
+import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.OrderMain;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
+import com.middle.ccs.order.entity.vo.BoxMainVO;
 import com.middle.ccs.order.service.OrderService;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -56,9 +59,16 @@ public class OrderController {
      * @return
      */
     @RequestMapping("/getOrderMainReport")
-    public ResponseResult<List<OrderMain>> getOrderMainReport() {
-        return ResponseResult.success(orderService.getOrderMainReport());
+    public ResponseResult<List<OrderMain>> getOrderMainReport(@RequestBody ReportListDTO reportListDTO) {
+        return ResponseResult.success(orderService.getOrderMainReport(reportListDTO));
     }
 
-//    public ResponseResult<List<boxMainVO>>
+    /**
+     * 查询批报告
+     * @return
+     */
+    @RequestMapping("/getReportList")
+    public ResponseResult<List<BoxMainVO>> getReportList(@RequestBody ReportListDTO reportListDTO) {
+        return ResponseResult.success(orderService.getReportList(reportListDTO));
+    }
 }

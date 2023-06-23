@@ -47,7 +47,7 @@
              order_status <![CDATA[ < ]]> 400
         ORDER BY create_time desc
     </select>
-    <select id="getOrderMainReport" resultType="com.middle.ccs.order.entity.po.OrderMain">
+    <select id="getOrderMainReport" resultType="com.middle.ccs.order.entity.po.OrderMain" parameterType="com.middle.ccs.order.entity.dto.ReportListDTO">
         SELECT
             order_main.order_id,
             order_main.order_no,
@@ -90,5 +90,29 @@
             dbo.order_main
         where
              order_status = 400
+            and order_main.order_no = #{orderNo}
+    </select>
+    <select id="getReportList" resultType="com.middle.ccs.order.entity.vo.BoxMainVO" parameterType="com.middle.ccs.order.entity.dto.ReportListDTO">
+        SELECT
+            order_main.order_id,
+            order_main.order_no,
+            order_main.order_name,
+            order_main.create_time,
+            order_main.order_status,
+            order_main.batch_id,
+            box_main.box_imitate_id,
+            box_main.box_id
+        FROM
+            dbo.order_main
+        inner join
+            dbo.box_main
+        on dbo.order_main.order_id = dbo.box_main.order_id
+        where order_status = 400
+        <if test="orderNo != null and orderNo != ''">
+            and order_main.order_no = #{orderNo}
+        </if>
+        <if test="boxImitateId != null and boxImitateId != ''">
+            and box_main.box_imitate_id = #{boxImitateId}
+        </if>
     </select>
 </mapper>

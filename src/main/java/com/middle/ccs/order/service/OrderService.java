@@ -1,7 +1,9 @@
 package com.middle.ccs.order.service;
 
 
+import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.OrderMain;
+import com.middle.ccs.order.entity.vo.BoxMainVO;
 
 import java.util.List;
 
@@ -28,7 +30,7 @@ public interface OrderService {
      * 获取批报告模板
      * @return
      */
-    List<OrderMain> getOrderMainReport();
+    List<OrderMain> getOrderMainReport(ReportListDTO reportListDTO);
 
     /**
      * 保存
@@ -36,4 +38,11 @@ public interface OrderService {
      * @return
      */
     Integer update(OrderMain orderMain);
+
+    /**
+     * 查询批报告
+     * @param reportListDTO
+     * @return
+     */
+    List<BoxMainVO> getReportList(ReportListDTO reportListDTO);
 }

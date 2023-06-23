@@ -6,7 +6,7 @@
         select count(*) boxnum from dbo.box_main
         where CAST(create_time AS DATE) = CAST(GETDATE() AS DATE)
     </select>
-    <select id="getBoxReport" resultType="com.middle.ccs.order.entity.vo.BoxDetailVO">
+    <select id="getBoxReport" resultType="com.middle.ccs.order.entity.vo.BoxDetailVO" parameterType="com.middle.ccs.order.entity.dto.ReportListDTO">
         SELECT
             box_detail.box_detail_id,
             box_detail.qualified,
@@ -87,5 +87,6 @@
         inner join
             dbo.order_main
             on dbo.box_main.order_id = dbo.order_main.order_id
+        where dbo.box_detail.box_imitate_id = #{boxImitateId}
     </select>
 </mapper>

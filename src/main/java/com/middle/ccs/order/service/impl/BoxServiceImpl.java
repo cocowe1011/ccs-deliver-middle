@@ -4,6 +4,7 @@ import com.middle.ccs.order.dao.BoxDetailServiceMapper;
 import com.middle.ccs.order.dao.BoxServiceMapper;
 import com.middle.ccs.order.dao.OrderServiceMapper;
 import com.middle.ccs.order.entity.dto.BoxMainDTO;
+import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.BoxDetail;
 import com.middle.ccs.order.entity.po.BoxMain;
 import com.middle.ccs.order.entity.po.OrderMain;
@@ -84,8 +85,8 @@ public class BoxServiceImpl implements BoxService {
      * @return
      */
     @Override
-    public List<BoxDetailVO> getBoxReport() {
+    public List<BoxDetailVO> getBoxReport(ReportListDTO reportListDTO) {
         // 整表关联
-        return boxServiceMapper.getBoxReport();
+        return boxServiceMapper.getBoxReport(reportListDTO);
     }
 }

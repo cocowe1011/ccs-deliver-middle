@@ -2,6 +2,7 @@ package com.middle.ccs.order.controller;
 
 import com.middle.ccs.hander.ResponseResult;
 import com.middle.ccs.order.entity.dto.BoxMainDTO;
+import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 import com.middle.ccs.order.service.BoxService;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,7 +47,7 @@ public class BoxController {
      * @return
      */
     @RequestMapping("/getBoxReport")
-    public ResponseResult<List<BoxDetailVO>> getBoxReport() {
-        return ResponseResult.success(boxService.getBoxReport());
+    public ResponseResult<List<BoxDetailVO>> getBoxReport(@RequestBody ReportListDTO reportListDTO) {
+        return ResponseResult.success(boxService.getBoxReport(reportListDTO));
     }
 }

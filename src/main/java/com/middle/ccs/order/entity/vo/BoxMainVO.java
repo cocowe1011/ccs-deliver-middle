@@ -19,7 +19,7 @@ public class BoxMainVO {
      * 订单日期，订单表创建日期
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
-    private Date create_time;
+    private Date createTime;
 
     /**
      * 订单编号
@@ -38,5 +38,9 @@ public class BoxMainVO {
     @JsonSerialize(using = ToStringSerializer.class)
     private Long batchId;
 
+    /**
+     * 箱编号
+     */
+    private String boxImitateId;
 
 }

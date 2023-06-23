@@ -1,7 +1,9 @@
 package com.middle.ccs.order.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.OrderMain;
+import com.middle.ccs.order.entity.vo.BoxMainVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -22,7 +24,15 @@ public interface OrderServiceMapper extends BaseMapper<OrderMain> {
 
     /**
      * 获取批报告模板
+     * @param reportListDTO
      * @return
      */
-    List<OrderMain> getOrderMainReport();
+    List<OrderMain> getOrderMainReport(ReportListDTO reportListDTO);
+
+    /**
+     * 查询批报告
+     * @param reportListDTO
+     * @return
+     */
+    List<BoxMainVO> getReportList(ReportListDTO reportListDTO);
 }

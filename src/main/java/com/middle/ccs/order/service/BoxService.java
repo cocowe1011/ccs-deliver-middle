@@ -2,6 +2,7 @@ package com.middle.ccs.order.service;
 
 
 import com.middle.ccs.order.entity.dto.BoxMainDTO;
+import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 
 import java.util.List;
@@ -26,8 +27,9 @@ public interface BoxService {
     Integer getId();
 
     /**
-     * 获取箱报告模板
+     * 获取项报告模板
+     * @param reportListDTO
      * @return
      */
-    List<BoxDetailVO> getBoxReport();
+    List<BoxDetailVO> getBoxReport(ReportListDTO reportListDTO);
 }
