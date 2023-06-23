@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.middle.pcs.order.dao.OrderServiceMapper">
 
-    <select id="getOrderList" resultType="com.middle.pcs.order.entity.OrderMain">
+    <select id="getOrderList" resultType="com.middle.pcs.order.entity.po.OrderMain">
         SELECT
             order_main.order_id,
             order_main.order_no,
@@ -43,6 +43,8 @@
             order_main.qualified_box_num
         FROM
             dbo.order_main
+        where
+             order_status <![CDATA[ < ]]> 400
         ORDER BY create_time desc
     </select>
 </mapper>
