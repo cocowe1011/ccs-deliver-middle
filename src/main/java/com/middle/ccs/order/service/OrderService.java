@@ -29,4 +29,11 @@ public interface OrderService {
      * @return
      */
     List<OrderMain> getOrderMainReport();
+
+    /**
+     * 保存
+     * @param orderMain
+     * @return
+     */
+    Integer update(OrderMain orderMain);
 }

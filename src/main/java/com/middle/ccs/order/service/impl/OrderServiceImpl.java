@@ -47,4 +47,14 @@ public class OrderServiceImpl implements OrderService {
     public List<OrderMain> getOrderMainReport() {
         return orderServiceMapper.getOrderMainReport();
     }
+
+    /**
+     * 更新
+     * @param orderMain
+     * @return
+     */
+    @Override
+    public Integer update(OrderMain orderMain) {
+        return orderServiceMapper.updateById(orderMain);
+    }
 }

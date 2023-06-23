@@ -33,6 +33,16 @@ public class OrderController {
     }
 
     /**
+     * 保存方法
+     * @param orderMain
+     * @return
+     */
+    @RequestMapping("/update")
+    public ResponseResult<Integer> update(@RequestBody OrderMain orderMain) {
+        return ResponseResult.success(orderService.update(orderMain));
+    }
+
+    /**
      * 或者订单列表
      * @return
      */
