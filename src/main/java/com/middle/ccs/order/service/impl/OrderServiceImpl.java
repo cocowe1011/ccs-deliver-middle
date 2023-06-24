@@ -1,11 +1,13 @@
 package com.middle.ccs.order.service.impl;
 
 import com.middle.ccs.order.dao.OrderServiceMapper;
+import com.middle.ccs.order.entity.dto.OrderMainSaveDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.OrderMain;
 import com.middle.ccs.order.entity.vo.BoxMainVO;
 import com.middle.ccs.order.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -28,7 +30,9 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
-    public Integer save(OrderMain orderMain) {
+    public Integer save(OrderMainSaveDTO orderMainSaveDTO) {
+        OrderMain orderMain = new OrderMain();
+        BeanUtils.copyProperties(orderMainSaveDTO, orderMain);
         return orderServiceMapper.insert(orderMain);
     }
 

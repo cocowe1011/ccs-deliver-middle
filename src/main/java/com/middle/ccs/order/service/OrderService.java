@@ -1,6 +1,7 @@
 package com.middle.ccs.order.service;
 
 
+import com.middle.ccs.order.entity.dto.OrderMainSaveDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.OrderMain;
 import com.middle.ccs.order.entity.vo.BoxMainVO;
@@ -15,10 +16,10 @@ import java.util.List;
 public interface OrderService {
     /**
      * 保存
-     * @param orderMain
+     * @param orderMainSaveDTO
      * @return
      */
-    Integer save(OrderMain orderMain);
+    Integer save(OrderMainSaveDTO orderMainSaveDTO);
 
     /**
      * 获取订单列表

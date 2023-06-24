@@ -40,7 +40,10 @@
             order_main.order_box_num,
             order_main.eliminate_box_num,
             order_main.exhibit_box_num,
-            order_main.qualified_box_num
+            order_main.qualified_box_num,
+            order_main.sx_speed_set,
+            order_main.sx_speed_upper_limit,
+            order_main.sx_speed_lower_limit
         FROM
             dbo.order_main
         where

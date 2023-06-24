@@ -1,17 +1,18 @@
 package com.middle.ccs.order.controller;
 
 import com.middle.ccs.hander.ResponseResult;
+import com.middle.ccs.order.entity.dto.OrderMainSaveDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.OrderMain;
-import com.middle.ccs.order.entity.vo.BoxDetailVO;
 import com.middle.ccs.order.entity.vo.BoxMainVO;
 import com.middle.ccs.order.service.OrderService;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -20,19 +21,21 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/order")
+@Validated
 public class OrderController {
 
     @Resource
     private OrderService orderService;
 
+
     /**
      * 保存方法
-     * @param orderMain
+     * @param orderMainSaveDTO
      * @return
      */
     @RequestMapping("/save")
-    public ResponseResult<Integer> save(@RequestBody OrderMain orderMain) {
-        return ResponseResult.success(orderService.save(orderMain));
+    public ResponseResult<Integer> save(@Valid @RequestBody OrderMainSaveDTO orderMainSaveDTO) {
+        return ResponseResult.success(orderService.save(orderMainSaveDTO));
     }
 
     /**
