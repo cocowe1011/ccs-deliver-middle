@@ -3,12 +3,16 @@ package com.middle.ccs.hander;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 全局统一返回结果类
  *
  */
 @Data
-public class ResponseResult<T> {
+public class ResponseResult<T> implements Serializable {
+
+    private static final long serialVersionUID = -5858147992383769655L;
 
     //返回码
     private Integer code;

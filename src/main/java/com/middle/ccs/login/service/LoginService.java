@@ -1,6 +1,9 @@
 package com.middle.ccs.login.service;
 
 
+import com.middle.ccs.login.entity.LoginDTO;
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,9 +15,10 @@ import java.util.List;
 public interface LoginService {
 
     /**
-     * q3
-     * @return
+     * 登录
+     * @param loginDTO 登录入参
+     * @return 登录
      */
-    List<HashMap<String, Object>> getValidCode();
+    Boolean login(LoginDTO loginDTO);
 
 }

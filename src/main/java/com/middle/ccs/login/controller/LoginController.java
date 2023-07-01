@@ -1,6 +1,9 @@
 package com.middle.ccs.login.controller;
 
+import com.middle.ccs.hander.ResponseResult;
+import com.middle.ccs.login.entity.LoginDTO;
 import com.middle.ccs.login.service.LoginService;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,8 +22,8 @@ public class LoginController {
     @Resource
     private LoginService loginService;
 
-    @RequestMapping("/getValidCode")
-    public List<HashMap<String, Object>> getValidCode() {
-        return loginService.getValidCode();
+    @RequestMapping("/login")
+    public ResponseResult<Boolean> login(@RequestBody LoginDTO loginDTO) {
+        return ResponseResult.success(loginService.login(loginDTO));
     }
 }
