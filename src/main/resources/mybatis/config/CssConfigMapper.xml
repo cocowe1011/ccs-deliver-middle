@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.middle.ccs.config.dao.CssConfigMapper">
+<select id="getConfig" resultType="com.middle.ccs.config.entity.CssConfig">
+    SELECT
+        TOP 1
+        css_config.config_id,
+        css_config.plc_ip,
+        css_config.plc_port,
+        css_config.one_one_length,
+        css_config.two_length,
+        css_config.judge_load_point
+    FROM
+        dbo.css_config
+</select>
+</mapper>

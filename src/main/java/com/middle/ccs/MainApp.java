@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @Slf4j
-@MapperScan("com.middle.pcs.*.dao")
+@MapperScan("com.middle.ccs.*.dao")
 public class MainApp{
     public static void main(String[] args) {
         // 第一个参数是该类的名字.class 第二个参数是main方法中的参数
