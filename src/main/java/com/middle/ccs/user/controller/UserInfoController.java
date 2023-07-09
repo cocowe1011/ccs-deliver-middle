@@ -3,6 +3,7 @@ package com.middle.ccs.user.controller;
 import com.middle.ccs.hander.ResponseResult;
 import com.middle.ccs.user.entity.UserInfo;
 import com.middle.ccs.user.service.UserInfoService;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -24,5 +25,15 @@ public class UserInfoController {
     @PostMapping("/save")
     public ResponseResult<Integer> save (@RequestBody UserInfo userInfo) {
         return  ResponseResult.success(userInfoService.save(userInfo));
+    }
+
+    @PostMapping("/verifyName")
+    public ResponseResult<Boolean> verifyName (@RequestBody UserInfo userInfo) {
+        return  ResponseResult.success(userInfoService.verifyName(userInfo));
+    }
+
+    @PostMapping("/updatePassword")
+    public ResponseResult<Integer> updatePassword (@RequestBody UserInfo userInfo) {
+        return  ResponseResult.success(userInfoService.updatePassword(userInfo));
     }
 }

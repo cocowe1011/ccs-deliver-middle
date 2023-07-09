@@ -21,4 +21,6 @@ public interface UserInfoMapper extends BaseMapper<UserInfo> {
      * @return 出参
      */
     List<UserInfo> selectUserList(UserInfo userInfo);
+
+    Integer updatePassword(UserInfo userInfo);
 }

@@ -2,6 +2,7 @@ package com.middle.ccs.login.service;
 
 
 import com.middle.ccs.login.entity.LoginDTO;
+import com.middle.ccs.user.entity.UserInfo;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.util.HashMap;
@@ -19,6 +20,6 @@ public interface LoginService {
      * @param loginDTO 登录入参
      * @return 登录
      */
-    Boolean login(LoginDTO loginDTO);
+    UserInfo login(LoginDTO loginDTO);
 
 }

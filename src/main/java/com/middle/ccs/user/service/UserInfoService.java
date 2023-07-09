@@ -1,6 +1,8 @@
 package com.middle.ccs.user.service;
 
 import com.middle.ccs.user.entity.UserInfo;
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.util.List;
 
 /**
@@ -13,4 +15,7 @@ public interface UserInfoService {
    
     Integer save (UserInfo userInfo);
 
+    Boolean verifyName(UserInfo userInfo);
+
+    Integer updatePassword(UserInfo userInfo);
 }

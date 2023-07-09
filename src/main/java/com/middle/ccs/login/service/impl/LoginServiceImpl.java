@@ -35,7 +35,7 @@ public class LoginServiceImpl implements LoginService {
      * @return 登录出参
      */
     @Override
-    public Boolean login(LoginDTO loginDTO) {
+    public UserInfo login(LoginDTO loginDTO) {
         UserInfo userInfo = new UserInfo();
         userInfo.setUserCode(loginDTO.getUserCode());
         // 通过userCode去查询密码
@@ -47,6 +47,6 @@ public class LoginServiceImpl implements LoginService {
         if(!(null != loginDTO.getUserPassword() && loginDTO.getUserPassword().equals(entity.get(0).getUserPassword()))) {
             throw BusinessException.build(CommonErrorCode.PASSWORD_ERROR);
         }
-        return true;
+        return entity.get(0);
     }
 }

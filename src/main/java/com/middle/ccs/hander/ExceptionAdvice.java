@@ -34,6 +34,7 @@ public class ExceptionAdvice {
         log.warn("业务异常(BusinessException),{}", e);
         ResponseResult result = new ResponseResult();
         result.setMessage(e.getMessage());
+        result.setCode(e.getCode());
         return result;
     }
 

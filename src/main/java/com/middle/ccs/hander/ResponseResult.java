@@ -15,7 +15,7 @@ public class ResponseResult<T> implements Serializable {
     private static final long serialVersionUID = -5858147992383769655L;
 
     //返回码
-    private Integer code;
+    private String code;
 
     //返回消息
     private String message;
@@ -34,7 +34,7 @@ public class ResponseResult<T> implements Serializable {
         return result;
     }
 
-    public static <T> ResponseResult<T> build(T body, Integer code, String message) {
+    public static <T> ResponseResult<T> build(T body, String code, String message) {
         ResponseResult<T> result = build(body);
         result.setCode(code);
         result.setMessage(message);
@@ -83,7 +83,7 @@ public class ResponseResult<T> implements Serializable {
         return this;
     }
 
-    public ResponseResult<T> code(Integer code){
+    public ResponseResult<T> code(String code){
         this.setCode(code);
         return this;
     }

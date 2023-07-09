@@ -34,4 +34,18 @@ public class UserInfoServiceImpl implements UserInfoService {
         }
         return userInfoMapper.insert(userInfo);
     }
+
+    @Override
+    public Boolean verifyName(UserInfo userInfo) {
+        List<UserInfo> entity =  userInfoMapper.selectUserList(userInfo);
+        if(entity.size() < 1) {
+            throw BusinessException.build(CommonErrorCode.NOT_EXITS_USER_CODE);
+        }
+        return userInfo.getUserName().equals(entity.get(0).getUserName());
+    }
+
+    @Override
+    public Integer updatePassword(UserInfo userInfo) {
+        return userInfoMapper.updatePassword(userInfo);
+    }
 }
