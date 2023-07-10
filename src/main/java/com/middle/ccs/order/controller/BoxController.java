@@ -3,6 +3,7 @@ package com.middle.ccs.order.controller;
 import com.middle.ccs.hander.ResponseResult;
 import com.middle.ccs.order.entity.dto.BoxMainDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
+import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 import com.middle.ccs.order.service.BoxService;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -49,5 +50,14 @@ public class BoxController {
     @RequestMapping("/getBoxReport")
     public ResponseResult<List<BoxDetailVO>> getBoxReport(@RequestBody ReportListDTO reportListDTO) {
         return ResponseResult.success(boxService.getBoxReport(reportListDTO));
+    }
+
+    /**
+     * 获取加速器工艺数据
+     * @return 加速器实体类
+     */
+    @RequestMapping("/getAccData")
+    public ResponseResult<ParametersAcc> getAccData() {
+        return ResponseResult.success(boxService.getAccData());
     }
 }

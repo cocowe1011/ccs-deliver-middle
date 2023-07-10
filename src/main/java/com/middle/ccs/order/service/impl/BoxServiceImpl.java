@@ -8,6 +8,7 @@ import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.BoxDetail;
 import com.middle.ccs.order.entity.po.BoxMain;
 import com.middle.ccs.order.entity.po.OrderMain;
+import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 import com.middle.ccs.order.service.BoxService;
 import lombok.extern.slf4j.Slf4j;
@@ -88,5 +89,10 @@ public class BoxServiceImpl implements BoxService {
     public List<BoxDetailVO> getBoxReport(ReportListDTO reportListDTO) {
         // 整表关联
         return boxServiceMapper.getBoxReport(reportListDTO);
+    }
+
+    @Override
+    public ParametersAcc getAccData() {
+        return boxServiceMapper.getAccData();
     }
 }

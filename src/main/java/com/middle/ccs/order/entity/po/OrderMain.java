@@ -99,92 +99,92 @@ public class OrderMain  {
     /**
     * 束流上限
     */    
-    private String slUpperLimit;
+    private Integer slUpperLimit;
                 
     /**
     * 束流设定值
     */    
-    private String slSet;
+    private Integer slSet;
                 
     /**
     * 束流下限值
     */    
-    private String slLowerLimit;
+    private Integer slLowerLimit;
                 
     /**
     * 功率上限
     */    
-    private String glUpperLimit;
+    private BigDecimal glUpperLimit;
                 
     /**
     * 功率设定值
     */    
-    private String glSet;
+    private BigDecimal glSet;
                 
     /**
     * 功率下限值
     */    
-    private String glLowerLimit;
+    private BigDecimal glLowerLimit;
                 
     /**
     * 扫宽上限
     */    
-    private String skUpperLimit;
+    private Integer skUpperLimit;
                 
     /**
     * 扫宽设定值
     */    
-    private String skSet;
+    private Integer skSet;
                 
     /**
     * 扫宽下限值
     */    
-    private String skLowerLimit;
+    private Integer skLowerLimit;
                 
     /**
     * 扫描频率上限
     */    
-    private String smplUpperLimit;
+    private BigDecimal smplUpperLimit;
                 
     /**
     * 扫描频率设定值
     */    
-    private String smplSet;
+    private BigDecimal smplSet;
                 
     /**
     * 扫描频率下限值
     */    
-    private String smplLowerLimit;
+    private BigDecimal smplLowerLimit;
                 
     /**
     * PFN电压上限
     */    
-    private String pfnUpperLimit;
+    private BigDecimal pfnUpperLimit;
                 
     /**
     * PFN电压设定值
     */    
-    private String pfnSet;
+    private BigDecimal pfnSet;
                 
     /**
     * PFN电压下限值
     */    
-    private String pfnLowerLimit;
+    private BigDecimal pfnLowerLimit;
                 
     /**
     * 能量上限
     */    
-    private String nlUpperLimit;
+    private BigDecimal nlUpperLimit;
                 
     /**
     * 能量设定值
     */    
-    private String nlSet;
+    private BigDecimal nlSet;
                 
     /**
     * 能量下限值
     */    
-    private String nlLowerLimit;
+    private BigDecimal nlLowerLimit;
                 
     /**
     * 订单箱数
@@ -209,17 +209,17 @@ public class OrderMain  {
     /**
      * 束下速度
      */
-    private String sxSpeedSet;
+    private BigDecimal sxSpeedSet;
 
     /**
      * 束下速度上限
      */
-    private String sxSpeedUpperLimit;
+    private BigDecimal sxSpeedUpperLimit;
 
     /**
      * 束下速度下限
      */
-    private String sxSpeedLowerLimit;
+    private BigDecimal sxSpeedLowerLimit;
 
     /**
      * 订单状态

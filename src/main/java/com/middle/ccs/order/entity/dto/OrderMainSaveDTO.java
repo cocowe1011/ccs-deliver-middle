@@ -98,109 +98,109 @@ public class OrderMainSaveDTO {
     * 束流上限
     */
     @NotEmpty(message = "束流上限不可为空")
-    private String slUpperLimit;
+    private Integer slUpperLimit;
                 
     /**
     * 束流设定值
     */
     @NotEmpty(message = "束流设定值不可为空")
-    private String slSet;
+    private Integer slSet;
                 
     /**
     * 束流下限值
     */
     @NotEmpty(message = "束流下限值不可为空")
-    private String slLowerLimit;
+    private Integer slLowerLimit;
                 
     /**
     * 功率上限
     */
     @NotEmpty(message = "功率上限不可为空")
-    private String glUpperLimit;
+    private BigDecimal glUpperLimit;
                 
     /**
     * 功率设定值
     */
     @NotEmpty(message = "功率设定值不可为空")
-    private String glSet;
+    private BigDecimal glSet;
                 
     /**
     * 功率下限值
     */
     @NotEmpty(message = "功率下限值不可为空")
-    private String glLowerLimit;
+    private BigDecimal glLowerLimit;
                 
     /**
     * 扫宽上限
     */
     @NotEmpty(message = "扫宽上限不可为空")
-    private String skUpperLimit;
+    private Integer skUpperLimit;
                 
     /**
     * 扫宽设定值
     */
     @NotEmpty(message = "扫宽设定值不可为空")
-    private String skSet;
+    private Integer skSet;
                 
     /**
     * 扫宽下限值
     */
     @NotEmpty(message = "扫宽下限值不可为空")
-    private String skLowerLimit;
+    private Integer skLowerLimit;
                 
     /**
     * 扫描频率上限
     */
     @NotEmpty(message = "扫描频率上限不可为空")
-    private String smplUpperLimit;
+    private BigDecimal smplUpperLimit;
                 
     /**
     * 扫描频率设定值
     */
     @NotEmpty(message = "扫描频率设定值不可为空")
-    private String smplSet;
+    private BigDecimal smplSet;
                 
     /**
     * 扫描频率下限值
     */
     @NotEmpty(message = "扫描频率下限值不可为空")
-    private String smplLowerLimit;
+    private BigDecimal smplLowerLimit;
                 
     /**
     * PFN电压上限
     */
     @NotEmpty(message = "PFN电压上限值不可为空")
-    private String pfnUpperLimit;
+    private BigDecimal pfnUpperLimit;
                 
     /**
     * PFN电压设定值
     */
     @NotEmpty(message = "PFN电压设定值不可为空")
-    private String pfnSet;
+    private BigDecimal pfnSet;
                 
     /**
     * PFN电压下限值
     */
     @NotEmpty(message = "PFN电压下限值不可为空")
-    private String pfnLowerLimit;
+    private BigDecimal pfnLowerLimit;
                 
     /**
     * 能量上限
     */
     @NotEmpty(message = "能量上限值不可为空")
-    private String nlUpperLimit;
+    private BigDecimal nlUpperLimit;
                 
     /**
     * 能量设定值
     */
     @NotEmpty(message = "能量设定值值不可为空")
-    private String nlSet;
+    private BigDecimal nlSet;
                 
     /**
     * 能量下限值
     */
     @NotEmpty(message = "能量下限值不可为空")
-    private String nlLowerLimit;
+    private BigDecimal nlLowerLimit;
                 
     /**
     * 订单箱数
@@ -227,19 +227,19 @@ public class OrderMainSaveDTO {
      * 束下速度
      */
     @NotEmpty(message = "束下速度不可为空")
-    private String sxSpeedSet;
+    private BigDecimal sxSpeedSet;
 
     /**
      * 束下速度上限
      */
     @NotEmpty(message = "束下速度上限不可为空")
-    private String sxSpeedUpperLimit;
+    private BigDecimal sxSpeedUpperLimit;
 
     /**
      * 束下速度下限
      */
     @NotEmpty(message = "束下速度下限不可为空")
-    private String sxSpeedLowerLimit;
+    private BigDecimal sxSpeedLowerLimit;
 
     /**
      * 订单状态

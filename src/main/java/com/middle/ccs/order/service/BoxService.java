@@ -3,6 +3,7 @@ package com.middle.ccs.order.service;
 
 import com.middle.ccs.order.entity.dto.BoxMainDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
+import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 
 import java.util.List;
@@ -32,4 +33,10 @@ public interface BoxService {
      * @return
      */
     List<BoxDetailVO> getBoxReport(ReportListDTO reportListDTO);
+
+    /**
+     * 获取acc加速器数据
+     * @return
+     */
+    ParametersAcc getAccData();
 }

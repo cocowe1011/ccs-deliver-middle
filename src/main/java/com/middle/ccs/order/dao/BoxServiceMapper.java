@@ -1,8 +1,10 @@
 package com.middle.ccs.order.dao;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.BoxMain;
+import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -27,4 +29,11 @@ public interface BoxServiceMapper extends BaseMapper<BoxMain> {
      * @return
      */
     List<BoxDetailVO> getBoxReport(ReportListDTO reportListDTO);
+
+    /**
+     * 获取acc加速器数据
+     * @return 出参
+     */
+    @DS("db2")
+    ParametersAcc getAccData();
 }

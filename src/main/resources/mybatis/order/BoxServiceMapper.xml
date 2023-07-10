@@ -89,4 +89,21 @@
             on dbo.box_main.order_id = dbo.order_main.order_id
         where dbo.box_detail.box_imitate_id = #{boxImitateId}
     </select>
+    <select id="getAccData" resultType="com.middle.ccs.order.entity.po.ParametersAcc">
+        SELECT
+            TOP 1
+            parameters.energy,
+            parameters.beam,
+            parameters.speed,
+            parameters.power,
+            parameters.scan_f,
+            parameters.scan_w,
+            parameters.pfn,
+            parameters.pps,
+            parameters.beam_on
+        FROM
+            dbo.parameters
+        ORDER BY
+            parameters.time DESC
+    </select>
 </mapper>
