@@ -48,4 +48,16 @@ public class UserInfoServiceImpl implements UserInfoService {
     public Integer updatePassword(UserInfo userInfo) {
         return userInfoMapper.updatePassword(userInfo);
     }
+
+    /**
+     * verifyPassword
+     */
+    @Override
+    public Boolean verifyPassword(UserInfo userInfo) {
+        List<UserInfo> entity =  userInfoMapper.selectUserList(userInfo);
+        if(entity.size() < 1) {
+            throw BusinessException.build(CommonErrorCode.NOT_EXITS_USER_CODE);
+        }
+        return userInfo.getUserPassword().equals(entity.get(0).getUserPassword());
+    }
 }

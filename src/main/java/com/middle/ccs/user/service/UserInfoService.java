@@ -18,4 +18,6 @@ public interface UserInfoService {
     Boolean verifyName(UserInfo userInfo);
 
     Integer updatePassword(UserInfo userInfo);
+
+    Boolean verifyPassword(UserInfo userInfo);
 }

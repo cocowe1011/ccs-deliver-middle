@@ -36,4 +36,9 @@ public class UserInfoController {
     public ResponseResult<Integer> updatePassword (@RequestBody UserInfo userInfo) {
         return  ResponseResult.success(userInfoService.updatePassword(userInfo));
     }
+
+    @PostMapping("/verifyPassword")
+    public ResponseResult<Boolean> verifyPassword (@RequestBody UserInfo userInfo) {
+        return  ResponseResult.success(userInfoService.verifyPassword(userInfo));
+    }
 }
