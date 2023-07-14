@@ -95,7 +95,7 @@
              order_status = 400
             and order_main.order_no = #{orderNo}
     </select>
-    <select id="getReportList" resultType="com.middle.ccs.order.entity.vo.BoxMainVO" parameterType="com.middle.ccs.order.entity.dto.ReportListDTO">
+    <select id="getReportList" resultType="com.middle.ccs.order.entity.vo.BoxMainVO" parameterType="com.middle.ccs.order.entity.dto.ReportListPageDTO">
         SELECT
             order_main.order_id,
             order_main.order_no,
@@ -116,6 +116,9 @@
         </if>
         <if test="boxImitateId != null and boxImitateId != ''">
             and box_main.box_imitate_id = #{boxImitateId}
+        </if>
+        <if test="batchId != null and batchId != ''">
+            and order_main.batch_id = #{batchId}
         </if>
     </select>
 </mapper>

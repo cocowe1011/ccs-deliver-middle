@@ -1,8 +1,10 @@
 package com.middle.ccs.order.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.middle.ccs.hander.ResponseResult;
 import com.middle.ccs.order.entity.dto.OrderMainSaveDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
+import com.middle.ccs.order.entity.dto.ReportListPageDTO;
 import com.middle.ccs.order.entity.po.OrderMain;
 import com.middle.ccs.order.entity.vo.BoxMainVO;
 import com.middle.ccs.order.service.OrderService;
@@ -71,7 +73,7 @@ public class OrderController {
      * @return
      */
     @RequestMapping("/getReportList")
-    public ResponseResult<List<BoxMainVO>> getReportList(@RequestBody ReportListDTO reportListDTO) {
+    public ResponseResult<PageInfo<BoxMainVO>> getReportList(@RequestBody ReportListPageDTO reportListDTO) {
         return ResponseResult.success(orderService.getReportList(reportListDTO));
     }
 }

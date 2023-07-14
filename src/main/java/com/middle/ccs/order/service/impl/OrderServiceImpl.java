@@ -1,8 +1,11 @@
 package com.middle.ccs.order.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.middle.ccs.order.dao.OrderServiceMapper;
 import com.middle.ccs.order.entity.dto.OrderMainSaveDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
+import com.middle.ccs.order.entity.dto.ReportListPageDTO;
 import com.middle.ccs.order.entity.po.OrderMain;
 import com.middle.ccs.order.entity.vo.BoxMainVO;
 import com.middle.ccs.order.service.OrderService;
@@ -12,6 +15,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+
+import static com.github.pagehelper.page.PageMethod.startPage;
 
 /**
  * 功能描述: (对外提供预约信息的中台接口)
@@ -70,7 +75,11 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
-    public List<BoxMainVO> getReportList(ReportListDTO reportListDTO) {
-        return orderServiceMapper.getReportList(reportListDTO);
+    public PageInfo<BoxMainVO> getReportList(ReportListPageDTO reportListDTO) {
+        // 分页查询当前时段的预约患者
+        Page<BoxMainVO> page = startPage(reportListDTO.getPageNum(), reportListDTO.getPageSize());
+        orderServiceMapper.getReportList(reportListDTO);
+        PageInfo<BoxMainVO> voPage = new PageInfo<>(page);
+        return voPage;
     }
 }
