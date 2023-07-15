@@ -2,11 +2,13 @@ package com.middle.ccs.order.entity.po;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * @classDesc: 实体类:(OrderMain)
@@ -226,4 +228,15 @@ public class OrderMain  {
      */
     private Integer orderStatus;
 
+    /**
+     * 订单开始时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date startTime;
+
+    /**
+     * 订单开结束时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date endTime;
 }

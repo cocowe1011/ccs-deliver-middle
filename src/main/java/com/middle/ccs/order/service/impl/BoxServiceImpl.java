@@ -4,6 +4,7 @@ import com.middle.ccs.order.dao.BoxDetailServiceMapper;
 import com.middle.ccs.order.dao.BoxServiceMapper;
 import com.middle.ccs.order.dao.OrderServiceMapper;
 import com.middle.ccs.order.entity.dto.BoxMainDTO;
+import com.middle.ccs.order.entity.dto.BoxMainNewDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.BoxDetail;
 import com.middle.ccs.order.entity.po.BoxMain;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -43,9 +45,22 @@ public class BoxServiceImpl implements BoxService {
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public Integer save(List<BoxMainDTO> boxMainDTO) {
+    public Integer save(BoxMainNewDTO boxMainNewDTO) {
         int i = 0;
+        List<BoxMainDTO> boxMainDTO = boxMainNewDTO.getBoxMainDTOList();
         for (BoxMainDTO entity: boxMainDTO) {
+            // 判断是更新还是新增
+            BoxMain boxMainTemp = boxServiceMapper.getBoxInfoByBoxImitateId(entity);
+            if(null != boxMainTemp) {
+                // 已经有箱报告，把原来的箱报告和明细删除掉，在下面重新生成
+                i = boxServiceMapper.deleteBoxInfoByBoxId(boxMainTemp.getBoxId());
+                if(i < 1) {
+                    throw new RuntimeException();
+                }
+                // 再把boxImitateId的明细删掉
+                boxServiceMapper.deleteBoxDetailByBoxImitateId(boxMainTemp.getBoxImitateId());
+            }
+            // 新增
             BoxMain boxMain = new BoxMain();
             BeanUtils.copyProperties(entity, boxMain);
             i = boxServiceMapper.insert(boxMain);
@@ -61,11 +76,14 @@ public class BoxServiceImpl implements BoxService {
                 }
             }
         }
-        // 更新订单状态
-        OrderMain orderMain = new OrderMain();
-        orderMain.setOrderId(boxMainDTO.get(0).getOrderId());
-        orderMain.setOrderStatus(400);
-        i = this.orderServiceMapper.updateById(orderMain);
+        // 更新订单状态,只有完成批报告才更新状态
+        if(boxMainNewDTO.getFinishOrder()) {
+            OrderMain orderMain = new OrderMain();
+            orderMain.setOrderId(boxMainDTO.get(0).getOrderId());
+            orderMain.setOrderStatus(400);
+            orderMain.setEndTime(new Date());
+            i = this.orderServiceMapper.updateById(orderMain);
+        }
 //        if(i != 1) {
 //            throw new RuntimeException();
 //        }

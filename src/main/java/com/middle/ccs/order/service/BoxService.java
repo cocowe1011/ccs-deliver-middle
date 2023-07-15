@@ -2,6 +2,7 @@ package com.middle.ccs.order.service;
 
 
 import com.middle.ccs.order.entity.dto.BoxMainDTO;
+import com.middle.ccs.order.entity.dto.BoxMainNewDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
@@ -16,10 +17,10 @@ import java.util.List;
 public interface BoxService {
     /**
      * 保存
-     * @param boxMainDTO 保存
+     * @param boxMainNewDTO 保存
      * @return 出参
      */
-    Integer save(List<BoxMainDTO> boxMainDTO);
+    Integer save(BoxMainNewDTO boxMainNewDTO);
 
     /**
      * 获取今日0~9999编号

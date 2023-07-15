@@ -2,11 +2,13 @@ package com.middle.ccs.order.dao;
 
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.middle.ccs.order.entity.dto.BoxMainDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.BoxMain;
 import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -36,4 +38,25 @@ public interface BoxServiceMapper extends BaseMapper<BoxMain> {
      */
     @DS("db2")
     ParametersAcc getAccData();
+
+    /**
+     * 获取箱子信息，判断箱报告有没有生成
+     * @param entity
+     * @return
+     */
+    BoxMain getBoxInfoByBoxImitateId(BoxMainDTO entity);
+
+    /**
+     * 删除箱报告
+     * @param boxId
+     * @return
+     */
+    Integer deleteBoxInfoByBoxId(@Param("boxId") Long boxId);
+
+    /**
+     * 删除明细
+     * @param boxImitateId
+     * @return
+     */
+    void deleteBoxDetailByBoxImitateId(@Param("boxImitateId") String boxImitateId);
 }

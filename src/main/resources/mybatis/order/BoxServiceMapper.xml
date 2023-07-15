@@ -106,4 +106,13 @@
         ORDER BY
             parameters.time DESC
     </select>
+    <select id="getBoxInfoByBoxImitateId" parameterType="com.middle.ccs.order.entity.dto.BoxMainDTO" resultType="com.middle.ccs.order.entity.po.BoxMain">
+        SELECT box_id, box_imitate_id FROM dbo.box_main where dbo.box_main.box_imitate_id = #{boxImitateId}
+    </select>
+    <delete id="deleteBoxInfoByBoxId" parameterType="java.lang.Long">
+  	    DELETE dbo.box_main where dbo.box_main.box_id = #{boxId}
+    </delete>
+    <delete id="deleteBoxDetailByBoxImitateId" parameterType="java.lang.String">
+  	    DELETE dbo.box_detail where box_imitate_id = #{boxImitateId}
+    </delete>
 </mapper>
