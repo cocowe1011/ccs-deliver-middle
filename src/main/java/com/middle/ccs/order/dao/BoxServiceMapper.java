@@ -3,6 +3,7 @@ package com.middle.ccs.order.dao;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.middle.ccs.order.entity.dto.BoxMainDTO;
+import com.middle.ccs.order.entity.dto.ReportLatestDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.BoxMain;
 import com.middle.ccs.order.entity.po.ParametersAcc;
@@ -59,4 +60,11 @@ public interface BoxServiceMapper extends BaseMapper<BoxMain> {
      * @return
      */
     void deleteBoxDetailByBoxImitateId(@Param("boxImitateId") String boxImitateId);
+
+    /**
+     * 获取箱报告模板
+     * @param reportListDTO
+     * @return
+     */
+    BoxDetailVO getBoxReportLatest(ReportLatestDTO reportListDTO);
 }

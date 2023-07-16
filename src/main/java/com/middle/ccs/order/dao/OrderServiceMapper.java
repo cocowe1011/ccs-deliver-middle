@@ -36,4 +36,10 @@ public interface OrderServiceMapper extends BaseMapper<OrderMain> {
      * @return
      */
     List<BoxMainVO> getReportList(ReportListPageDTO reportListDTO);
+
+    /**
+     * 获取当前运行订单列表
+     * @return
+     */
+    OrderMain getNowRunOrder();
 }

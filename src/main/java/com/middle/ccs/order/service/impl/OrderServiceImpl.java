@@ -82,4 +82,13 @@ public class OrderServiceImpl implements OrderService {
         PageInfo<BoxMainVO> voPage = new PageInfo<>(page);
         return voPage;
     }
+
+    /**
+     * 获取当前运行订单列表
+     * @return
+     */
+    @Override
+    public OrderMain getNowRunOrder() {
+        return orderServiceMapper.getNowRunOrder();
+    }
 }

@@ -5,6 +5,7 @@ import com.middle.ccs.order.dao.BoxServiceMapper;
 import com.middle.ccs.order.dao.OrderServiceMapper;
 import com.middle.ccs.order.entity.dto.BoxMainDTO;
 import com.middle.ccs.order.entity.dto.BoxMainNewDTO;
+import com.middle.ccs.order.entity.dto.ReportLatestDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.BoxDetail;
 import com.middle.ccs.order.entity.po.BoxMain;
@@ -112,5 +113,10 @@ public class BoxServiceImpl implements BoxService {
     @Override
     public ParametersAcc getAccData() {
         return boxServiceMapper.getAccData();
+    }
+
+    @Override
+    public BoxDetailVO getBoxReportLatest(ReportLatestDTO reportListDTO) {
+        return boxServiceMapper.getBoxReportLatest(reportListDTO);
     }
 }

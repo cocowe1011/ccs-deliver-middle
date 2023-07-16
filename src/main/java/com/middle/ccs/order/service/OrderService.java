@@ -48,4 +48,10 @@ public interface OrderService {
      * @return
      */
     PageInfo<BoxMainVO> getReportList(ReportListPageDTO reportListDTO);
+
+    /**
+     * 获取当前正在运行的订单
+     * @return
+     */
+    OrderMain getNowRunOrder();
 }

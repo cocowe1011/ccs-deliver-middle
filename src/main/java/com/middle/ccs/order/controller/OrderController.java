@@ -76,4 +76,13 @@ public class OrderController {
     public ResponseResult<PageInfo<BoxMainVO>> getReportList(@RequestBody ReportListPageDTO reportListDTO) {
         return ResponseResult.success(orderService.getReportList(reportListDTO));
     }
+
+    /**
+     * 获取当前正在运行的订单
+     * @return
+     */
+    @RequestMapping("/getNowRunOrder")
+    public ResponseResult<OrderMain> getNowRunOrder() {
+        return ResponseResult.success(orderService.getNowRunOrder());
+    }
 }

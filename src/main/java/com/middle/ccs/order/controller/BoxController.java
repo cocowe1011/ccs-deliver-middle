@@ -3,6 +3,7 @@ package com.middle.ccs.order.controller;
 import com.middle.ccs.hander.ResponseResult;
 import com.middle.ccs.order.entity.dto.BoxMainDTO;
 import com.middle.ccs.order.entity.dto.BoxMainNewDTO;
+import com.middle.ccs.order.entity.dto.ReportLatestDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
@@ -60,5 +61,14 @@ public class BoxController {
     @RequestMapping("/getAccData")
     public ResponseResult<ParametersAcc> getAccData() {
         return ResponseResult.success(boxService.getAccData());
+    }
+
+    /**
+     * 通过订单id获取最新一次箱报告模板
+     * @return
+     */
+    @RequestMapping("/getBoxReportLatest")
+    public ResponseResult<BoxDetailVO> getBoxReportLatest(@RequestBody ReportLatestDTO reportListDTO) {
+        return ResponseResult.success(boxService.getBoxReportLatest(reportListDTO));
     }
 }
