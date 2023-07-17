@@ -7,6 +7,7 @@ import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.dto.ReportListPageDTO;
 import com.middle.ccs.order.entity.po.OrderMain;
 import com.middle.ccs.order.entity.vo.BoxMainVO;
+import com.middle.ccs.order.entity.vo.OrderMainReportVO;
 import com.middle.ccs.order.service.OrderService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -64,7 +65,7 @@ public class OrderController {
      * @return
      */
     @RequestMapping("/getOrderMainReport")
-    public ResponseResult<List<OrderMain>> getOrderMainReport(@RequestBody ReportListDTO reportListDTO) {
+    public ResponseResult<List<OrderMainReportVO>> getOrderMainReport(@RequestBody ReportListDTO reportListDTO) {
         return ResponseResult.success(orderService.getOrderMainReport(reportListDTO));
     }
 

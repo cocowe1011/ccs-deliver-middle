@@ -10,6 +10,10 @@
         SELECT
             box_detail.box_detail_id,
             box_detail.qualified,
+            CASE
+               WHEN box_main.qualified = '1' THEN '合格'
+               ELSE '不合格'
+            END AS boxQualified,
             box_detail.sl_read,
             box_detail.gl_read,
             box_detail.sk_read,
@@ -120,6 +124,10 @@
             TOP 1
             box_detail.box_detail_id,
             box_detail.qualified,
+            CASE
+               WHEN box_main.qualified = '1' THEN '合格'
+               ELSE '不合格'
+            END AS boxQualified,
             box_detail.sl_read,
             box_detail.gl_read,
             box_detail.sk_read,
@@ -199,5 +207,12 @@
             on dbo.box_main.order_id = dbo.order_main.order_id
         where dbo.order_main.order_id = #{orderId}
 		order by box_main.create_time desc, box_main.box_imitate_id desc
+    </select>
+    <select id="getBoxInfoByOrderNo" resultType="com.middle.ccs.order.entity.po.BoxMain" parameterType="com.middle.ccs.order.entity.dto.ReportListDTO">
+        SELECT box_imitate_id, qualified FROM dbo.order_main
+		left join
+		dbo.box_main
+		on dbo.box_main.order_id = dbo.order_main.order_id
+        where order_main.order_no = #{orderNo}
     </select>
 </mapper>

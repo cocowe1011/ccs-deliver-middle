@@ -1,4 +1,4 @@
-package com.middle.ccs.order.entity.po;
+package com.middle.ccs.order.entity.vo;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -16,13 +16,11 @@ import java.util.Date;
  * @date: 2023-06-09 01:36:55
  */
 @Data
-@TableName("order_main")
-public class OrderMain  {
+public class OrderMainReportVO {
     private static final long serialVersionUID = -14336138781844056L;
     /**
     * 主键
-    */    
-    @TableId
+    */
     @JsonSerialize(using = ToStringSerializer.class)
     private Long orderId;
             
@@ -241,7 +239,123 @@ public class OrderMain  {
     private Date endTime;
 
     /**
+     * 束流最小值
+     */
+    private String slMin;
+    /**
+     * 束流平均值
+     */
+    private String slAverage;
+    /**
+     * 束流最大值
+     */
+    private String slMax;
+
+    /**
+     * 束下速度最小值
+     */
+    private String speedMin;
+    /**
+     * 束下速度平均值
+     */
+    private String speedAverage;
+    /**
+     * 束下速度最大值
+     */
+    private String speedMax;
+
+    /**
+     * 扫描宽度最小值
+     */
+    private String skMin;
+    /**
+     * 扫描宽度平均值
+     */
+    private String skAverage;
+    /**
+     * 扫描宽度最大值
+     */
+    private String skMax;
+
+    /**
+     * 功率最小值
+     */
+    private String glMin;
+    /**
+     * 功率平均值
+     */
+    private String glAverage;
+    /**
+     * 功率最大值
+     */
+    private String glMax;
+
+    /**
+     * 扫描频率最小值
+     */
+    private String smplMin;
+    /**
+     * 扫描频率平均值
+     */
+    private String smplAverage;
+    /**
+     * 扫描频率最大值
+     */
+    private String smplMax;
+
+    /**
+     * PFN电压最小值
+     */
+    private String pfnMin;
+    /**
+     * PFN电压平均值
+     */
+    private String pfnAverage;
+    /**
+     * PFN电压最大值
+     */
+    private String pfnMax;
+
+    /**
+     * 能量最小值
+     */
+    private String nlMin;
+    /**
+     * 能量平均值
+     */
+    private String nlAverage;
+    /**
+     * 能量最大值
+     */
+    private String nlMax;
+
+    /**
      * 操作员
      */
     private String creatorName;
+
+    /**
+     * 订单总个数
+     */
+    private Integer orderTotal;
+
+    /**
+     * 订单合格个数
+     */
+    private Integer passTotal;
+
+    /**
+     * 订单不合格个数
+     */
+    private Integer unpassTotal;
+
+    /**
+     * 订单合格模拟id列表
+     */
+    private String passStr;
+
+    /**
+     * 订单不合格模拟id列表
+     */
+    private String unpassStr;
 }

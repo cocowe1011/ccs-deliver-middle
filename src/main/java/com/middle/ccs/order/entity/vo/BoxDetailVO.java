@@ -356,4 +356,9 @@ public class BoxDetailVO {
      */
     private Integer orderStatus;
 
+    /**
+     * 是否合格
+     */
+    private String boxQualified;
+
 }

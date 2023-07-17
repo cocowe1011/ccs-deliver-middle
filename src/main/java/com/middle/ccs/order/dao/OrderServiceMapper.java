@@ -5,6 +5,7 @@ import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.dto.ReportListPageDTO;
 import com.middle.ccs.order.entity.po.OrderMain;
 import com.middle.ccs.order.entity.vo.BoxMainVO;
+import com.middle.ccs.order.entity.vo.OrderMainReportVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public interface OrderServiceMapper extends BaseMapper<OrderMain> {
      * @param reportListDTO
      * @return
      */
-    List<OrderMain> getOrderMainReport(ReportListDTO reportListDTO);
+    List<OrderMainReportVO> getOrderMainReport(ReportListDTO reportListDTO);
 
     /**
      * 查询批报告

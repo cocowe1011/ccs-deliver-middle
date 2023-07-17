@@ -67,4 +67,11 @@ public interface BoxServiceMapper extends BaseMapper<BoxMain> {
      * @return
      */
     BoxDetailVO getBoxReportLatest(ReportLatestDTO reportListDTO);
+
+    /**
+     * 通过orderNo获取所有箱子列表
+     * @param reportListDTO
+     * @return
+     */
+    List<BoxMain> getBoxInfoByOrderNo(ReportListDTO reportListDTO);
 }

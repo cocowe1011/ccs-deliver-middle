@@ -2,12 +2,15 @@ package com.middle.ccs.order.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
+import com.middle.ccs.order.dao.BoxServiceMapper;
 import com.middle.ccs.order.dao.OrderServiceMapper;
 import com.middle.ccs.order.entity.dto.OrderMainSaveDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.dto.ReportListPageDTO;
+import com.middle.ccs.order.entity.po.BoxMain;
 import com.middle.ccs.order.entity.po.OrderMain;
 import com.middle.ccs.order.entity.vo.BoxMainVO;
+import com.middle.ccs.order.entity.vo.OrderMainReportVO;
 import com.middle.ccs.order.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -29,6 +32,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Resource
     private OrderServiceMapper orderServiceMapper;
+
+    @Resource
+    private BoxServiceMapper boxServiceMapper;
 
     /**
      * 保存
@@ -55,8 +61,31 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
-    public List<OrderMain> getOrderMainReport(ReportListDTO reportListDTO) {
-        return orderServiceMapper.getOrderMainReport(reportListDTO);
+    public List<OrderMainReportVO> getOrderMainReport(ReportListDTO reportListDTO) {
+        // 计算实际上货箱数 查询订单编号下箱子列表
+        List<BoxMain> boxList = boxServiceMapper.getBoxInfoByOrderNo(reportListDTO);
+        int passTotal = 0;
+        String passStr = "";
+        int unpassTotal = 0;
+        String unPassStr = "";
+        for (BoxMain bm: boxList) {
+            if("1".equals(bm.getQualified())) {
+                passTotal++;
+                passStr += ("".equals(passStr)?"":"，") + bm.getBoxImitateId();
+            } else {
+                unpassTotal++;
+                unPassStr += ("".equals(unPassStr)?"":"，") + bm.getBoxImitateId();
+            }
+        }
+        List<OrderMainReportVO> lvo = orderServiceMapper.getOrderMainReport(reportListDTO);
+        for (OrderMainReportVO orv: lvo) {
+            orv.setOrderTotal(boxList.size());
+            orv.setPassTotal(passTotal);
+            orv.setUnpassTotal(unpassTotal);
+            orv.setPassStr(passStr);
+            orv.setUnpassStr(unPassStr);
+        }
+        return lvo;
     }
 
     /**

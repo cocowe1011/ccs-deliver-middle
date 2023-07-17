@@ -48,5 +48,10 @@ public class BoxMain {
      * 箱子实际圈数
      */
     private Integer numberTurns;
-    
+
+    /**
+     * 是否合格
+     */
+    private String qualified;
+
 }
