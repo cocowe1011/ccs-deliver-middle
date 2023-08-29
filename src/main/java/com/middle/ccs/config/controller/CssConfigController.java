@@ -1,6 +1,7 @@
 package com.middle.ccs.config.controller;
 
 import com.middle.ccs.config.entity.CssConfig;
+import com.middle.ccs.config.entity.PcsConfig;
 import com.middle.ccs.config.service.CssConfigService;
 import com.middle.ccs.hander.ResponseResult;
 import com.middle.ccs.login.entity.LoginDTO;
@@ -27,8 +28,18 @@ public class CssConfigController {
         return ResponseResult.success(cssConfigService.update(cssConfig));
     }
 
+    @PostMapping("/updatePcsConfig")
+    public ResponseResult<Integer> updatePcsConfig (@RequestBody PcsConfig pcsConfig) {
+        return ResponseResult.success(cssConfigService.updatePcsConfig(pcsConfig));
+    }
+
     @RequestMapping("/getConfig")
     public ResponseResult<CssConfig> getConfig() {
         return ResponseResult.success(cssConfigService.getConfig());
+    }
+
+    @RequestMapping("/getPcsConfig")
+    public ResponseResult<PcsConfig> getPcsConfig() {
+        return ResponseResult.success(cssConfigService.getPcsConfig());
     }
 }

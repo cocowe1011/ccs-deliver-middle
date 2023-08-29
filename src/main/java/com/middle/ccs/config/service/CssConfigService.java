@@ -1,6 +1,7 @@
 package com.middle.ccs.config.service;
 
 import com.middle.ccs.config.entity.CssConfig;
+import com.middle.ccs.config.entity.PcsConfig;
 
 /**
  * @classDesc: 业务接口:(CssConfig)
@@ -13,4 +14,8 @@ public interface CssConfigService {
     Integer update(CssConfig cssConfig);
 
     CssConfig getConfig();
+
+    Integer updatePcsConfig(PcsConfig pcsConfig);
+
+    PcsConfig getPcsConfig();
 }

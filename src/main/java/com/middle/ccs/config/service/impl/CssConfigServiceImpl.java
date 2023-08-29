@@ -2,6 +2,7 @@ package com.middle.ccs.config.service.impl;
 
 import com.middle.ccs.config.entity.CssConfig;
 import com.middle.ccs.config.dao.CssConfigMapper;
+import com.middle.ccs.config.entity.PcsConfig;
 import com.middle.ccs.config.service.CssConfigService;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +27,15 @@ public class CssConfigServiceImpl implements CssConfigService {
     @Override
     public CssConfig getConfig() {
         return cssConfigMapper.getConfig();
+    }
+
+    @Override
+    public Integer updatePcsConfig(PcsConfig pcsConfig) {
+        return null;
+    }
+
+    @Override
+    public PcsConfig getPcsConfig() {
+        return null;
     }
 }
