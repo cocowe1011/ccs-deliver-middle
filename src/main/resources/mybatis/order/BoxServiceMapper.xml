@@ -95,20 +95,19 @@
     </select>
     <select id="getAccData" resultType="com.middle.ccs.order.entity.po.ParametersAcc">
         SELECT
-            TOP 1
-            parameters.energy,
-            parameters.beam,
-            parameters.speed,
-            parameters.power,
-            parameters.scan_f,
-            parameters.scan_w,
-            parameters.pfn,
-            parameters.pps,
-            parameters.beam_on
+            energy,
+            beam,
+            speed,
+            power,
+            scan_f,
+            scan_w,
+            pfn,
+            pps,
+            beam_on
         FROM
-            dbo.parameters
+            parameters
         ORDER BY
-            parameters.time DESC
+            time DESC limit 1
     </select>
     <select id="getBoxInfoByBoxImitateId" parameterType="com.middle.ccs.order.entity.dto.BoxMainDTO" resultType="com.middle.ccs.order.entity.po.BoxMain">
         SELECT box_id, box_imitate_id FROM dbo.box_main where dbo.box_main.box_imitate_id = #{boxImitateId}
