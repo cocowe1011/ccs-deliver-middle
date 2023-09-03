@@ -43,7 +43,8 @@
             order_main.qualified_box_num,
             order_main.sx_speed_set,
             order_main.sx_speed_upper_limit,
-            order_main.sx_speed_lower_limit
+            order_main.sx_speed_lower_limit,
+            order_main.tray_flag
         FROM
             dbo.order_main
         where
