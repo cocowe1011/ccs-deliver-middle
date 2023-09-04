@@ -80,7 +80,7 @@ public class BoxServiceImpl implements BoxService {
         // 更新订单状态,只有完成批报告才更新状态
         if(boxMainNewDTO.getFinishOrder()) {
             OrderMain orderMain = new OrderMain();
-            orderMain.setOrderId(boxMainDTO.get(0).getOrderId());
+            orderMain.setOrderId(boxMainNewDTO.getOrderId());
             orderMain.setOrderStatus(400);
             orderMain.setEndTime(new Date());
             i = this.orderServiceMapper.updateById(orderMain);

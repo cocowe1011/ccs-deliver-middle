@@ -13,4 +13,5 @@ import java.util.List;
 public class BoxMainNewDTO {
     List<BoxMainDTO> boxMainDTOList;
     Boolean finishOrder;
+    private Long orderId;
 }

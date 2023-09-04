@@ -97,34 +97,34 @@ SELECT
             order_main.start_time,
             order_main.end_time,
             MIN(box_detail.sl_read) AS slMin,
-            AVG(box_detail.sl_read) AS slAverage,
+            Round(AVG(box_detail.sl_read), 1) AS slAverage,
             MAX(box_detail.sl_read) AS slMax,
 
             MIN(box_detail.gl_read) AS glMin,
-            AVG(box_detail.gl_read) AS glAverage,
+            Round(AVG(box_detail.gl_read), 1) AS glAverage,
             MAX(box_detail.gl_read) AS glMax,
 
             MIN(box_detail.sk_read) AS skMin,
-            AVG(box_detail.sk_read) AS skAverage,
+            Round(AVG(box_detail.sk_read), 1) AS skAverage,
             MAX(box_detail.sk_read) AS skMax,
 
 
             MIN(box_detail.smpl_read) AS smplMin,
-            AVG(box_detail.smpl_read) AS smplAverage,
+            Round(AVG(box_detail.smpl_read), 1) AS smplAverage,
             MAX(box_detail.smpl_read) AS smplMax,
 
 
             MIN(box_detail.pfn_read) AS pfnMin,
-            AVG(box_detail.pfn_read) AS pfnAverage,
+            Round(AVG(box_detail.pfn_read), 1) AS pfnAverage,
             MAX(box_detail.pfn_read) AS pfnMax,
 
 
             MIN(box_detail.nl_read) AS nlMin,
-            AVG(box_detail.nl_read) AS nlAverage,
+            Round(AVG(box_detail.nl_read), 1) AS nlAverage,
             MAX(box_detail.nl_read) AS nlMax,
 
             MIN(box_detail.sx_speed_read) AS speedMin,
-            AVG(box_detail.sx_speed_read) AS speedAverage,
+            Round(AVG(box_detail.sx_speed_read), 1) AS speedAverage,
             MAX(box_detail.sx_speed_read) AS speedMax
         FROM
         dbo.order_main
