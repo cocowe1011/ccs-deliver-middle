@@ -32,6 +32,13 @@ public interface OrderServiceMapper extends BaseMapper<OrderMain> {
     List<OrderMainReportVO> getOrderMainReport(ReportListDTO reportListDTO);
 
     /**
+     * 获取批报告模板，排除质量不合格的箱子，避免影响最值，均值统计
+     * @param reportListDTO
+     * @return
+     */
+    List<OrderMainReportVO> getOrderMainReportExcludeUnqualified(ReportListDTO reportListDTO);
+
+    /**
      * 查询批报告
      * @param reportListDTO
      * @return

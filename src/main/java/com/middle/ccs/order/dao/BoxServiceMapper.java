@@ -73,5 +73,5 @@ public interface BoxServiceMapper extends BaseMapper<BoxMain> {
      * @param reportListDTO
      * @return
      */
-    List<BoxMain> getBoxInfoByOrderNo(ReportListDTO reportListDTO);
+    List<BoxMain> getBoxInfoByOrderId(ReportListDTO reportListDTO);
 }

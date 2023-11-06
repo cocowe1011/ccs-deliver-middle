@@ -43,4 +43,24 @@ public class BoxMainVO {
      */
     private String boxImitateId;
 
+    /**
+     * 订单名称
+     */
+    private String productName;
+
+    /**
+     * 工艺名称
+     */
+    private String artName;
+
+    /**
+     * 装载方式
+     */
+    private String loadMethod;
+
+    /**
+     * 路径名称
+     */
+    private String pathName;
+
 }

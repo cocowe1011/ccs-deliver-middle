@@ -15,6 +15,11 @@ public class ReportListDTO {
     private Long orderNo;
 
     /**
+     * 订单id
+     */
+    private Long orderId;
+
+    /**
      * 箱编号
      */
     private String boxImitateId;

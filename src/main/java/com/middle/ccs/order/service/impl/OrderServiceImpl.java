@@ -63,7 +63,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<OrderMainReportVO> getOrderMainReport(ReportListDTO reportListDTO) {
         // 计算实际上货箱数 查询订单编号下箱子列表
-        List<BoxMain> boxList = boxServiceMapper.getBoxInfoByOrderNo(reportListDTO);
+        List<BoxMain> boxList = boxServiceMapper.getBoxInfoByOrderId(reportListDTO);
         int passTotal = 0;
         String passStr = "";
         int unpassTotal = 0;
@@ -77,7 +77,11 @@ public class OrderServiceImpl implements OrderService {
                 unPassStr += ("".equals(unPassStr)?"":"，") + bm.getBoxImitateId();
             }
         }
-        List<OrderMainReportVO> lvo = orderServiceMapper.getOrderMainReport(reportListDTO);
+        // 获取批报告模板，排除质量不合格的箱子，避免影响最值，均值统计
+        List<OrderMainReportVO> lvo = orderServiceMapper.getOrderMainReportExcludeUnqualified(reportListDTO);
+        if(null == lvo || lvo.size() == 0) {
+            lvo = orderServiceMapper.getOrderMainReport(reportListDTO);
+        }
         for (OrderMainReportVO orv: lvo) {
             orv.setOrderTotal(boxList.size());
             orv.setPassTotal(passTotal);
