@@ -43,8 +43,7 @@ public class OrderMainReportVO {
     /**
     * 批次编号
     */
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long batchId;
+    private String batchId;
                 
     /**
     * 产品名称

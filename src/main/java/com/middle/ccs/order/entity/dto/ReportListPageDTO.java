@@ -19,7 +19,7 @@ public class ReportListPageDTO {
     /**
      * 批次编号
      */
-    private Long batchId;
+    private String batchId;
 
     /**
      * 箱编号

@@ -41,9 +41,8 @@ public class OrderMainSaveDTO {
     /**
     * 批次编号
     */
-    @JsonSerialize(using = ToStringSerializer.class)
     @NotEmpty(message = "批次编号不可为空")
-    private Long batchId;
+    private String batchId;
                 
     /**
     * 产品名称

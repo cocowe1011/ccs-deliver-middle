@@ -35,8 +35,7 @@ public class BoxMainVO {
     /**
      * 批次编号
      */
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long batchId;
+    private String batchId;
 
     /**
      * 箱编号
