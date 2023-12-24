@@ -97,36 +97,36 @@ SELECT
             order_main.qualified_box_num,
             order_main.start_time,
             order_main.end_time,
-            MIN(box_detail.sl_read) AS slMin,
+            Round(MIN(box_detail.sl_read), 1) AS slMin,
             Round(AVG(box_detail.sl_read), 1) AS slAverage,
-            MAX(box_detail.sl_read) AS slMax,
+            Round(MAX(box_detail.sl_read), 1) AS slMax,
 
-            MIN(box_detail.gl_read) AS glMin,
+            Round(MIN(box_detail.gl_read), 1) AS glMin,
             Round(AVG(box_detail.gl_read), 1) AS glAverage,
-            MAX(box_detail.gl_read) AS glMax,
+            Round(MAX(box_detail.gl_read), 1) AS glMax,
 
-            MIN(box_detail.sk_read) AS skMin,
+            Round(MIN(box_detail.sk_read), 1) AS skMin,
             Round(AVG(box_detail.sk_read), 1) AS skAverage,
-            MAX(box_detail.sk_read) AS skMax,
+            Round(MAX(box_detail.sk_read), 1) AS skMax,
 
 
-            MIN(box_detail.smpl_read) AS smplMin,
+            Round(MIN(box_detail.smpl_read), 1) AS smplMin,
             Round(AVG(box_detail.smpl_read), 1) AS smplAverage,
-            MAX(box_detail.smpl_read) AS smplMax,
+            Round(MAX(box_detail.smpl_read), 1) AS smplMax,
 
 
-            MIN(box_detail.pfn_read) AS pfnMin,
+            Round(MIN(box_detail.pfn_read), 1) AS pfnMin,
             Round(AVG(box_detail.pfn_read), 1) AS pfnAverage,
-            MAX(box_detail.pfn_read) AS pfnMax,
+            Round(MAX(box_detail.pfn_read), 1) AS pfnMax,
 
 
-            MIN(box_detail.nl_read) AS nlMin,
+            Round(MIN(box_detail.nl_read), 1) AS nlMin,
             Round(AVG(box_detail.nl_read), 1) AS nlAverage,
-            MAX(box_detail.nl_read) AS nlMax,
+            Round(MAX(box_detail.nl_read), 1) AS nlMax,
 
-            MIN(box_detail.sx_speed_read) AS speedMin,
+            Round(MIN(box_detail.sx_speed_read), 1) AS speedMin,
             Round(AVG(box_detail.sx_speed_read), 1) AS speedAverage,
-            MAX(box_detail.sx_speed_read) AS speedMax
+            Round(MAX(box_detail.sx_speed_read), 1) AS speedMax
         FROM
         dbo.order_main
             left join
@@ -309,36 +309,36 @@ SELECT
             order_main.qualified_box_num,
             order_main.start_time,
             order_main.end_time,
-            MIN(box_detail.sl_read) AS slMin,
+            Round(MIN(box_detail.sl_read), 1) AS slMin,
             Round(AVG(box_detail.sl_read), 1) AS slAverage,
-            MAX(box_detail.sl_read) AS slMax,
+            Round(MAX(box_detail.sl_read), 1) AS slMax,
 
-            MIN(box_detail.gl_read) AS glMin,
+            Round(MIN(box_detail.gl_read), 1) AS glMin,
             Round(AVG(box_detail.gl_read), 1) AS glAverage,
-            MAX(box_detail.gl_read) AS glMax,
+            Round(MAX(box_detail.gl_read), 1) AS glMax,
 
-            MIN(box_detail.sk_read) AS skMin,
+            Round(MIN(box_detail.sk_read), 1) AS skMin,
             Round(AVG(box_detail.sk_read), 1) AS skAverage,
-            MAX(box_detail.sk_read) AS skMax,
+            Round(MAX(box_detail.sk_read), 1) AS skMax,
 
 
-            MIN(box_detail.smpl_read) AS smplMin,
+            Round(MIN(box_detail.smpl_read), 1) AS smplMin,
             Round(AVG(box_detail.smpl_read), 1) AS smplAverage,
-            MAX(box_detail.smpl_read) AS smplMax,
+            Round(MAX(box_detail.smpl_read), 1) AS smplMax,
 
 
-            MIN(box_detail.pfn_read) AS pfnMin,
+            Round(MIN(box_detail.pfn_read), 1) AS pfnMin,
             Round(AVG(box_detail.pfn_read), 1) AS pfnAverage,
-            MAX(box_detail.pfn_read) AS pfnMax,
+            Round(MAX(box_detail.pfn_read), 1) AS pfnMax,
 
 
-            MIN(box_detail.nl_read) AS nlMin,
+            Round(MIN(box_detail.nl_read), 1) AS nlMin,
             Round(AVG(box_detail.nl_read), 1) AS nlAverage,
-            MAX(box_detail.nl_read) AS nlMax,
+            Round(MAX(box_detail.nl_read), 1) AS nlMax,
 
-            MIN(box_detail.sx_speed_read) AS speedMin,
+            Round(MIN(box_detail.sx_speed_read), 1) AS speedMin,
             Round(AVG(box_detail.sx_speed_read), 1) AS speedAverage,
-            MAX(box_detail.sx_speed_read) AS speedMax
+            Round(MAX(box_detail.sx_speed_read), 1) AS speedMax
         FROM
         dbo.order_main
             left join

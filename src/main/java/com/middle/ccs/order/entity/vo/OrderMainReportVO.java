@@ -240,93 +240,93 @@ public class OrderMainReportVO {
     /**
      * 束流最小值
      */
-    private String slMin;
+    private Integer slMin;
     /**
      * 束流平均值
      */
-    private String slAverage;
+    private BigDecimal slAverage;
     /**
      * 束流最大值
      */
-    private String slMax;
+    private Integer slMax;
 
     /**
      * 束下速度最小值
      */
-    private String speedMin;
+    private BigDecimal speedMin;
     /**
      * 束下速度平均值
      */
-    private String speedAverage;
+    private BigDecimal speedAverage;
     /**
      * 束下速度最大值
      */
-    private String speedMax;
+    private BigDecimal speedMax;
 
     /**
      * 扫描宽度最小值
      */
-    private String skMin;
+    private Integer skMin;
     /**
      * 扫描宽度平均值
      */
-    private String skAverage;
+    private BigDecimal skAverage;
     /**
      * 扫描宽度最大值
      */
-    private String skMax;
+    private Integer skMax;
 
     /**
      * 功率最小值
      */
-    private String glMin;
+    private BigDecimal glMin;
     /**
      * 功率平均值
      */
-    private String glAverage;
+    private BigDecimal glAverage;
     /**
      * 功率最大值
      */
-    private String glMax;
+    private BigDecimal glMax;
 
     /**
      * 扫描频率最小值
      */
-    private String smplMin;
+    private BigDecimal smplMin;
     /**
      * 扫描频率平均值
      */
-    private String smplAverage;
+    private BigDecimal smplAverage;
     /**
      * 扫描频率最大值
      */
-    private String smplMax;
+    private BigDecimal smplMax;
 
     /**
      * PFN电压最小值
      */
-    private String pfnMin;
+    private BigDecimal pfnMin;
     /**
      * PFN电压平均值
      */
-    private String pfnAverage;
+    private BigDecimal pfnAverage;
     /**
      * PFN电压最大值
      */
-    private String pfnMax;
+    private BigDecimal pfnMax;
 
     /**
      * 能量最小值
      */
-    private String nlMin;
+    private BigDecimal nlMin;
     /**
      * 能量平均值
      */
-    private String nlAverage;
+    private BigDecimal nlAverage;
     /**
      * 能量最大值
      */
-    private String nlMax;
+    private BigDecimal nlMax;
 
     /**
      * 操作员

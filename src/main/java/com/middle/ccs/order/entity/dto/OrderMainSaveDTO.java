@@ -250,4 +250,9 @@ public class OrderMainSaveDTO {
      */
     private Integer orderStatus;
 
+    /**
+     * 操作员
+     */
+    private String creatorName;
+
 }

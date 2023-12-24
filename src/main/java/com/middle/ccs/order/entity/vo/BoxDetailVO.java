@@ -73,37 +73,37 @@ public class BoxDetailVO {
     /**
      * 束流读取值
      */
-    private String slRead;
+    private Integer slRead;
 
     /**
      * 功率读取值
      */
-    private String glRead;
+    private BigDecimal glRead;
 
     /**
      * 扫宽读取值
      */
-    private String skRead;
+    private Integer skRead;
 
     /**
      * 扫描频率读取值
      */
-    private String smplRead;
+    private BigDecimal smplRead;
 
     /**
      * PFN电压读取值
      */
-    private String pfnRead;
+    private BigDecimal pfnRead;
 
     /**
      * 能量读取值
      */
-    private String nlRead;
+    private BigDecimal nlRead;
 
     /**
      * 束下速度读取值
      */
-    private String sxSpeedRead;
+    private BigDecimal sxSpeedRead;
 
     /**
      * 辐射开始时间

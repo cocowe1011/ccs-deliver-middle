@@ -14,14 +14,14 @@
                WHEN box_main.qualified = '1' THEN '合格'
                ELSE '不合格'
             END AS boxQualified,
-            box_detail.sl_read,
-            box_detail.gl_read,
-            box_detail.sk_read,
-            box_detail.smpl_read,
-            box_detail.nl_read,
+            Round(box_detail.sl_read, 1) as sl_read,
+            Round(box_detail.gl_read, 1) as gl_read,
+            Round(box_detail.sk_read, 1) as sk_read,
+            Round(box_detail.smpl_read, 1) as smpl_read,
+            Round(box_detail.nl_read, 1) as nl_read,
             box_detail.number_turns as box_detail_number_turns,  -- 箱子当前数据属于第几圈
-            box_detail.pfn_read,
-            box_detail.sx_speed_read,
+            Round(box_detail.pfn_read, 1) as pfn_read,
+            Round(box_detail.sx_speed_read, 1) as sx_speed_read,
             box_detail.radiation_start_time,
             box_detail.pass_h_time,
             box_detail.pass_g_time,
