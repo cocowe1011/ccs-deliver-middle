@@ -50,4 +50,11 @@ public interface OrderServiceMapper extends BaseMapper<OrderMain> {
      * @return
      */
     OrderMain getNowRunOrder();
+
+    /**
+     * 查询批报告
+     * @param reportListDTO
+     * @return
+     */
+    List<OrderMain> getOrderList400(ReportListPageDTO reportListDTO);
 }

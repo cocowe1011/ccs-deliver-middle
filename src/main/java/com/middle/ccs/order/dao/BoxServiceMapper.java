@@ -74,4 +74,17 @@ public interface BoxServiceMapper extends BaseMapper<BoxMain> {
      * @return
      */
     List<BoxMain> getBoxInfoByOrderId(ReportListDTO reportListDTO);
+
+    /**
+     * 获取箱报告数据
+     * @return
+     */
+    List<BoxDetailVO> getBoxReportByOrderId(ReportListDTO reportListDTO);
+
+    /**
+     * 通过orderNo获取所有箱子列表
+     * @param reportListDTO
+     * @return
+     */
+    List<BoxMain> getBoxInfoByOrderIdDesc(ReportListDTO reportListDTO);
 }

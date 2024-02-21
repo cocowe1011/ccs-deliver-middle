@@ -78,6 +78,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.16</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version> <!-- 使用最新的版本号，或者是适合你项目的版本 -->
+        </dependency>
     </dependencies>
     <build>
         <plugins>

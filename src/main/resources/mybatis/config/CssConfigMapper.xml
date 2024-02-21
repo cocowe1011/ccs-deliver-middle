@@ -9,7 +9,8 @@
         css_config.plc_port,
         css_config.one_one_length,
         css_config.two_length,
-        css_config.judge_load_point
+        css_config.judge_load_point,
+        css_config.delay_point_time
     FROM
         dbo.css_config
 </select>

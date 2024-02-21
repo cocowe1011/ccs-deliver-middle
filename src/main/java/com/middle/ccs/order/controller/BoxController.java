@@ -1,10 +1,8 @@
 package com.middle.ccs.order.controller;
 
 import com.middle.ccs.hander.ResponseResult;
-import com.middle.ccs.order.entity.dto.BoxMainDTO;
-import com.middle.ccs.order.entity.dto.BoxMainNewDTO;
-import com.middle.ccs.order.entity.dto.ReportLatestDTO;
-import com.middle.ccs.order.entity.dto.ReportListDTO;
+import com.middle.ccs.order.entity.dto.*;
+import com.middle.ccs.order.entity.po.BoxMain;
 import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 import com.middle.ccs.order.service.BoxService;
@@ -70,5 +68,44 @@ public class BoxController {
     @RequestMapping("/getBoxReportLatest")
     public ResponseResult<BoxDetailVO> getBoxReportLatest(@RequestBody ReportLatestDTO reportListDTO) {
         return ResponseResult.success(boxService.getBoxReportLatest(reportListDTO));
+    }
+
+    /**
+     * 获取箱报告模板
+     * @return
+     */
+    @RequestMapping("/getBoxReportByOrderId")
+    public ResponseResult<List<BoxMain>> getBoxReportByOrderId(@RequestBody ReportListDTO reportListDTO) {
+        return ResponseResult.success(boxService.getBoxReportByOrderId(reportListDTO));
+    }
+
+    /**
+     * 复制箱子信息-复制最后一个箱子
+     * @param addBoxDTO 保存
+     * @return 出参
+     */
+    @RequestMapping("/addBox")
+    public ResponseResult<Integer> addBox(@RequestBody AddBoxDTO addBoxDTO) {
+        return ResponseResult.success(boxService.addBox(addBoxDTO));
+    }
+
+    /**
+     * 删除箱子及箱子明细
+     * @param deleteBoxDTO 入参
+     * @return 出参
+     */
+    @RequestMapping("/deleteBox")
+    public ResponseResult<Integer> deleteBox(@RequestBody DeleteBoxDTO deleteBoxDTO) {
+        return ResponseResult.success(boxService.deleteBox(deleteBoxDTO));
+    }
+
+    /**
+     * 修改箱子信息
+     * @param boxMain 入参
+     * @return 出参
+     */
+    @RequestMapping("/update")
+    public ResponseResult<Integer> update(@RequestBody BoxMain boxMain) {
+        return ResponseResult.success(boxService.update(boxMain));
     }
 }

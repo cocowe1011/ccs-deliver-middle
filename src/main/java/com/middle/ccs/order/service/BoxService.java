@@ -1,10 +1,8 @@
 package com.middle.ccs.order.service;
 
 
-import com.middle.ccs.order.entity.dto.BoxMainDTO;
-import com.middle.ccs.order.entity.dto.BoxMainNewDTO;
-import com.middle.ccs.order.entity.dto.ReportLatestDTO;
-import com.middle.ccs.order.entity.dto.ReportListDTO;
+import com.middle.ccs.order.entity.dto.*;
+import com.middle.ccs.order.entity.po.BoxMain;
 import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 
@@ -48,4 +46,31 @@ public interface BoxService {
      * @return
      */
     BoxDetailVO getBoxReportLatest(ReportLatestDTO reportListDTO);
+
+    /**
+     * 获取箱报告模板
+     * @return
+     */
+    List<BoxMain> getBoxReportByOrderId(ReportListDTO reportListDTO);
+
+    /**
+     * 复制箱子信息-复制最后一个箱子
+     * @param addBoxDTO 保存
+     * @return 出参
+     */
+    Integer addBox(AddBoxDTO addBoxDTO);
+
+    /**
+     * 删除箱子及箱子明细
+     * @param deleteBoxDTO 入参
+     * @return 出参
+     */
+    Integer deleteBox(DeleteBoxDTO deleteBoxDTO);
+
+    /**
+     * 修改箱子信息
+     * @param boxMain 入参
+     * @return 出参
+     */
+    Integer update(BoxMain boxMain);
 }

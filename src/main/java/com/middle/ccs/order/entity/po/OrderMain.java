@@ -248,4 +248,10 @@ public class OrderMain  {
      * 操作员
      */
     private String creatorName;
+
+    /**
+     * 订单日期，订单表创建日期
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
+    private Date createTime;
 }

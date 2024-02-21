@@ -86,4 +86,13 @@ public class OrderController {
     public ResponseResult<OrderMain> getNowRunOrder() {
         return ResponseResult.success(orderService.getNowRunOrder());
     }
+
+    /**
+     * 或者订单列表-400状态
+     * @return
+     */
+    @RequestMapping("/getOrderList400")
+    public ResponseResult<PageInfo<OrderMain>> getOrderList400(@RequestBody ReportListPageDTO reportListPageDTO) {
+        return ResponseResult.success(orderService.getOrderList400(reportListPageDTO));
+    }
 }

@@ -55,4 +55,10 @@ public interface OrderService {
      * @return
      */
     OrderMain getNowRunOrder();
+
+    /**
+     * 或者订单列表-400状态
+     * @return
+     */
+    PageInfo<OrderMain> getOrderList400(ReportListPageDTO reportListPageDTO);
 }

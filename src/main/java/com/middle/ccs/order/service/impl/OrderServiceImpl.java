@@ -124,4 +124,18 @@ public class OrderServiceImpl implements OrderService {
     public OrderMain getNowRunOrder() {
         return orderServiceMapper.getNowRunOrder();
     }
+
+    /**
+     * 查询批报告
+     * @param reportListDTO
+     * @return
+     */
+    @Override
+    public PageInfo<OrderMain> getOrderList400(ReportListPageDTO reportListDTO) {
+        // 分页查询当前时段的预约患者
+        Page<OrderMain> page = startPage(reportListDTO.getPageNum(), reportListDTO.getPageSize());
+        orderServiceMapper.getOrderList400(reportListDTO);
+        PageInfo<OrderMain> voPage = new PageInfo<>(page);
+        return voPage;
+    }
 }

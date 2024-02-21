@@ -45,5 +45,10 @@ public class CssConfig {
     * 判断禁止上货点位
     */    
     private String judgeLoadPoint;
+
+    /**
+     * 判断禁止上货点位
+     */
+    private String delayPointTime;
     
 }

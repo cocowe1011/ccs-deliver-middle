@@ -214,4 +214,12 @@
 		on dbo.box_main.order_id = dbo.order_main.order_id
         where order_main.order_id = #{orderId}
     </select>
+    <select id="getBoxInfoByOrderIdDesc" resultType="com.middle.ccs.order.entity.po.BoxMain" parameterType="com.middle.ccs.order.entity.dto.ReportListDTO">
+        SELECT box_imitate_id, qualified, load_scan_code, box_id, box_main.order_id, box_main.number_turns, box_main.order_no FROM dbo.order_main
+		left join
+		dbo.box_main
+		on dbo.box_main.order_id = dbo.order_main.order_id
+        where order_main.order_id = #{orderId}
+        order by dbo.box_main.box_imitate_id desc
+    </select>
 </mapper>
