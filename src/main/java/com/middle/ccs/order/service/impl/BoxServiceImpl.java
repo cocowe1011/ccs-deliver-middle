@@ -2,9 +2,7 @@ package com.middle.ccs.order.service.impl;
 
 import cn.hutool.core.date.DateUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.middle.ccs.order.dao.BoxDetailServiceMapper;
-import com.middle.ccs.order.dao.BoxServiceMapper;
-import com.middle.ccs.order.dao.OrderServiceMapper;
+import com.middle.ccs.order.dao.*;
 import com.middle.ccs.order.entity.dto.*;
 import com.middle.ccs.order.entity.po.*;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
@@ -37,6 +35,15 @@ public class BoxServiceImpl implements BoxService {
     @Resource
     private OrderServiceMapper orderServiceMapper;
 
+    @Resource
+    private OrderOriginalServiceMapper orderOriginalServiceMapper;
+
+    @Resource
+    private BoxOriginalServiceMapper boxOriginalServiceMapper;
+
+    @Resource
+    private BoxDetailOriginalServiceMapper boxDetailOriginalServiceMapper;
+
     /**
      * 保存
      * @return 保存成功行数
@@ -62,6 +69,12 @@ public class BoxServiceImpl implements BoxService {
             BoxMain boxMain = new BoxMain();
             BeanUtils.copyProperties(entity, boxMain);
             i = boxServiceMapper.insert(boxMain);
+            // 箱子插入原纪录表
+            if(boxMainNewDTO.getFinishOrder()) {
+                BoxMainOriginal boxMainOriginal = new BoxMainOriginal();
+                BeanUtils.copyProperties(entity, boxMainOriginal);
+                this.boxOriginalServiceMapper.insert(boxMainOriginal);
+            }
             if(i != 1) {
                 throw new RuntimeException();
             }
@@ -72,6 +85,12 @@ public class BoxServiceImpl implements BoxService {
                 if(i != 1) {
                     throw new RuntimeException();
                 }
+                // 插入原纪录表
+                if(boxMainNewDTO.getFinishOrder()) {
+                    BoxDetailOriginal boxDetailOriginal = new BoxDetailOriginal();
+                    BeanUtils.copyProperties(boxDetail, boxDetailOriginal);
+                    this.boxDetailOriginalServiceMapper.insert(boxDetailOriginal);
+                }
             }
         }
         // 更新订单状态,只有完成批报告才更新状态
@@ -81,10 +100,12 @@ public class BoxServiceImpl implements BoxService {
             orderMain.setOrderStatus(400);
             orderMain.setEndTime(new Date());
             i = this.orderServiceMapper.updateById(orderMain);
+            // 把原始记录存到原始记录表
+            OrderMain OrderMain2 = this.orderServiceMapper.getOrderListByOrderId(orderMain);
+            OrderMainOriginal orderMainOriginal = new OrderMainOriginal();
+            BeanUtils.copyProperties(OrderMain2, orderMainOriginal);
+            this.orderOriginalServiceMapper.insert(orderMainOriginal);
         }
-//        if(i != 1) {
-//            throw new RuntimeException();
-//        }
         return i;
     }
 
@@ -192,5 +213,15 @@ public class BoxServiceImpl implements BoxService {
     @Override
     public Integer update(BoxMain boxMain) {
         return boxServiceMapper.updateById(boxMain);
+    }
+
+    /**
+     * 获取箱报告数据
+     * @return
+     */
+    @Override
+    public List<BoxMainOriginal> getBoxOriginalReportByOrderId(ReportListDTO reportListDTO) {
+        // 整表关联
+        return boxServiceMapper.getBoxOriginalReportByOrderId(reportListDTO);
     }
 }

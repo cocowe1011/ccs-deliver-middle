@@ -3,6 +3,7 @@ package com.middle.ccs.order.controller;
 import com.middle.ccs.hander.ResponseResult;
 import com.middle.ccs.order.entity.dto.*;
 import com.middle.ccs.order.entity.po.BoxMain;
+import com.middle.ccs.order.entity.po.BoxMainOriginal;
 import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 import com.middle.ccs.order.service.BoxService;
@@ -107,5 +108,14 @@ public class BoxController {
     @RequestMapping("/update")
     public ResponseResult<Integer> update(@RequestBody BoxMain boxMain) {
         return ResponseResult.success(boxService.update(boxMain));
+    }
+
+    /**
+     * 获取箱报告模板-原始记录
+     * @return
+     */
+    @RequestMapping("/getBoxOriginalReportByOrderId")
+    public ResponseResult<List<BoxMainOriginal>> getBoxOriginalReportByOrderId(@RequestBody ReportListDTO reportListDTO) {
+        return ResponseResult.success(boxService.getBoxOriginalReportByOrderId(reportListDTO));
     }
 }

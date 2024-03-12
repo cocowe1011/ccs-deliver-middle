@@ -6,6 +6,7 @@ import com.middle.ccs.order.entity.dto.BoxMainDTO;
 import com.middle.ccs.order.entity.dto.ReportLatestDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.po.BoxMain;
+import com.middle.ccs.order.entity.po.BoxMainOriginal;
 import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 import org.apache.ibatis.annotations.Mapper;
@@ -77,6 +78,7 @@ public interface BoxServiceMapper extends BaseMapper<BoxMain> {
 
     /**
      * 获取箱报告数据
+     * @param reportListDTO
      * @return
      */
     List<BoxDetailVO> getBoxReportByOrderId(ReportListDTO reportListDTO);
@@ -87,4 +89,11 @@ public interface BoxServiceMapper extends BaseMapper<BoxMain> {
      * @return
      */
     List<BoxMain> getBoxInfoByOrderIdDesc(ReportListDTO reportListDTO);
+
+    /**
+     * 获取箱报告数据-原始数据
+     * @param reportListDTO
+     * @return
+     */
+    List<BoxMainOriginal> getBoxOriginalReportByOrderId(ReportListDTO reportListDTO);
 }

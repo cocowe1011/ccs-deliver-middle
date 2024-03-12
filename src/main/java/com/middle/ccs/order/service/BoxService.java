@@ -3,6 +3,7 @@ package com.middle.ccs.order.service;
 
 import com.middle.ccs.order.entity.dto.*;
 import com.middle.ccs.order.entity.po.BoxMain;
+import com.middle.ccs.order.entity.po.BoxMainOriginal;
 import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 
@@ -73,4 +74,11 @@ public interface BoxService {
      * @return 出参
      */
     Integer update(BoxMain boxMain);
+
+    /**
+     * 获取箱报告模板-原始记录
+     * @param reportListDTO
+     * @return
+     */
+    List<BoxMainOriginal> getBoxOriginalReportByOrderId(ReportListDTO reportListDTO);
 }

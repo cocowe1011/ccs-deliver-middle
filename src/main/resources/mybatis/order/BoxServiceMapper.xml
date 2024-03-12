@@ -222,4 +222,12 @@
         where order_main.order_id = #{orderId}
         order by dbo.box_main.box_imitate_id desc
     </select>
+    <select id="getBoxOriginalReportByOrderId" resultType="com.middle.ccs.order.entity.po.BoxMainOriginal" parameterType="com.middle.ccs.order.entity.dto.ReportListDTO">
+        SELECT box_imitate_id, qualified, load_scan_code, box_id, box_main_original.order_id, box_main_original.number_turns, box_main_original.order_no FROM dbo.order_main_original
+		left join
+		dbo.box_main_original
+		on dbo.box_main_original.order_id = dbo.order_main_original.order_id
+        where order_main_original.order_id = #{orderId}
+        order by dbo.box_main_original.box_imitate_id desc
+    </select>
 </mapper>

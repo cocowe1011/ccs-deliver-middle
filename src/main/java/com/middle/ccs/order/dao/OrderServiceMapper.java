@@ -1,6 +1,7 @@
 package com.middle.ccs.order.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.middle.ccs.order.entity.dto.BoxMainNewDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.dto.ReportListPageDTO;
 import com.middle.ccs.order.entity.po.OrderMain;
@@ -57,4 +58,11 @@ public interface OrderServiceMapper extends BaseMapper<OrderMain> {
      * @return
      */
     List<OrderMain> getOrderList400(ReportListPageDTO reportListDTO);
+
+    /**
+     * 通过orderId查询订单信息
+     * @param orderMain
+     * @return
+     */
+    OrderMain getOrderListByOrderId(OrderMain orderMain);
 }
