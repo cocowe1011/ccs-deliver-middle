@@ -46,5 +46,10 @@ public class BoxMainDTO {
      * 是否合格
      */
     private String qualified;
+
+    /**
+     * 不合格原因
+     */
+    private String failReason;
     
 }

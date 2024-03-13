@@ -5,6 +5,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
+
+import java.math.BigDecimal;
+
 /**
  * @classDesc: 实体类:(CssConfig)
  * @author: makejava
@@ -47,8 +50,23 @@ public class CssConfig {
     private String judgeLoadPoint;
 
     /**
-     * 判断禁止上货点位
+     * 延迟时间
      */
     private String delayPointTime;
+
+    /**
+     * J
+     */
+    private BigDecimal pointjLength;
+
+    /**
+     * K
+     */
+    private BigDecimal pointkLength;
+
+    /**
+     * L
+     */
+    private BigDecimal pointlLength;
     
 }

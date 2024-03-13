@@ -197,7 +197,8 @@ SELECT
             order_main.load_method,
             order_main.path_name,
             box_main.box_imitate_id,
-            box_main.box_id
+            box_main.box_id,
+            box_main.fail_reason
         FROM
             dbo.order_main
         inner join

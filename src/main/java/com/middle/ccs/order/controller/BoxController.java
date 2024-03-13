@@ -118,4 +118,14 @@ public class BoxController {
     public ResponseResult<List<BoxMainOriginal>> getBoxOriginalReportByOrderId(@RequestBody ReportListDTO reportListDTO) {
         return ResponseResult.success(boxService.getBoxOriginalReportByOrderId(reportListDTO));
     }
+
+    /**
+     * 修改箱子信息
+     * @param updateBoxImitateIdDTO 入参
+     * @return 出参
+     */
+    @RequestMapping("/updateBoxImitateId")
+    public ResponseResult<Integer> updateBoxImitateId(@RequestBody UpdateBoxImitateIdDTO updateBoxImitateIdDTO) {
+        return ResponseResult.success(boxService.updateBoxImitateId(updateBoxImitateIdDTO));
+    }
 }

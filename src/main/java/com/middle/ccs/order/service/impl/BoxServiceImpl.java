@@ -224,4 +224,19 @@ public class BoxServiceImpl implements BoxService {
         // 整表关联
         return boxServiceMapper.getBoxOriginalReportByOrderId(reportListDTO);
     }
+
+    /**
+     * 修改箱子信息
+     * @param updateBoxImitateIdDTO 入参
+     * @return 出参
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Integer updateBoxImitateId(UpdateBoxImitateIdDTO updateBoxImitateIdDTO) {
+        // 更新模拟id
+        this.boxServiceMapper.updateBoxImitateIdBox(updateBoxImitateIdDTO);
+        // 更新圈数模拟id
+        this.boxServiceMapper.updateBoxImitateIdBoxDetail(updateBoxImitateIdDTO);
+        return 1;
+    }
 }

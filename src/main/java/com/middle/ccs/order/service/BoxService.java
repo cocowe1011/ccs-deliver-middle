@@ -81,4 +81,11 @@ public interface BoxService {
      * @return
      */
     List<BoxMainOriginal> getBoxOriginalReportByOrderId(ReportListDTO reportListDTO);
+
+    /**
+     * 修改箱子信息
+     * @param updateBoxImitateIdDTO 入参
+     * @return 出参
+     */
+    Integer updateBoxImitateId(UpdateBoxImitateIdDTO updateBoxImitateIdDTO);
 }

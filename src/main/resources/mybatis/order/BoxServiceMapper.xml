@@ -230,4 +230,10 @@
         where order_main_original.order_id = #{orderId}
         order by dbo.box_main_original.box_imitate_id desc
     </select>
+    <update id="updateBoxImitateIdBox">
+        update dbo.box_main set box_imitate_id = #{boxImitateId} where box_imitate_id = #{aboxImitateId}
+    </update>
+    <update id="updateBoxImitateIdBoxDetail">
+        update dbo.box_detail set box_imitate_id = #{boxImitateId} where box_imitate_id = #{aboxImitateId}
+    </update>
 </mapper>

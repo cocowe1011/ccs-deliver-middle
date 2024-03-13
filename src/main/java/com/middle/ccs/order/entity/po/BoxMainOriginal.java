@@ -54,4 +54,9 @@ public class BoxMainOriginal {
      */
     private String qualified;
 
+    /**
+     * 不合格原因
+     */
+    private String failReason;
+
 }

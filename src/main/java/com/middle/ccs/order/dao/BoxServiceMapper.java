@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.middle.ccs.order.entity.dto.BoxMainDTO;
 import com.middle.ccs.order.entity.dto.ReportLatestDTO;
 import com.middle.ccs.order.entity.dto.ReportListDTO;
+import com.middle.ccs.order.entity.dto.UpdateBoxImitateIdDTO;
 import com.middle.ccs.order.entity.po.BoxMain;
 import com.middle.ccs.order.entity.po.BoxMainOriginal;
 import com.middle.ccs.order.entity.po.ParametersAcc;
@@ -96,4 +97,16 @@ public interface BoxServiceMapper extends BaseMapper<BoxMain> {
      * @return
      */
     List<BoxMainOriginal> getBoxOriginalReportByOrderId(ReportListDTO reportListDTO);
+
+    /**
+     * 更新
+     * @param updateBoxImitateIdDTO
+     */
+    void updateBoxImitateIdBox(UpdateBoxImitateIdDTO updateBoxImitateIdDTO);
+
+    /**
+     * 更新
+     * @param updateBoxImitateIdDTO
+     */
+    void updateBoxImitateIdBoxDetail(UpdateBoxImitateIdDTO updateBoxImitateIdDTO);
 }

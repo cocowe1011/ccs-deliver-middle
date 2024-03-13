@@ -62,4 +62,9 @@ public class BoxMainVO {
      */
     private String pathName;
 
+    /**
+     * 不合格原因
+     */
+    private String failReason;
+
 }
