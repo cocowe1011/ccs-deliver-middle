@@ -22,6 +22,14 @@ public interface BoxService {
      */
     Integer save(BoxMainNewDTO boxMainNewDTO);
 
+
+    /**
+     * 保存-原始记录
+     * @param boxMainNewDTO 保存
+     * @return 出参
+     */
+    Integer saveOriginal(BoxMainNewDTO boxMainNewDTO);
+
     /**
      * 获取今日0~9999编号
      * @return 编号

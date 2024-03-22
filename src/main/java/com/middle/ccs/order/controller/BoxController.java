@@ -36,6 +36,16 @@ public class BoxController {
     }
 
     /**
+     * 保存箱子信息-原始记录
+     * @param boxMainNewDTO 保存
+     * @return 出参
+     */
+    @RequestMapping("/saveOriginal")
+    public ResponseResult<Integer> saveOriginal(@RequestBody BoxMainNewDTO boxMainNewDTO) {
+        return ResponseResult.success(boxService.saveOriginal(boxMainNewDTO));
+    }
+
+    /**
      * 获取今日0~9999编号
      * @return 编号
      */

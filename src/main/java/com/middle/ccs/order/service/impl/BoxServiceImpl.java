@@ -69,12 +69,6 @@ public class BoxServiceImpl implements BoxService {
             BoxMain boxMain = new BoxMain();
             BeanUtils.copyProperties(entity, boxMain);
             i = boxServiceMapper.insert(boxMain);
-            // 箱子插入原纪录表
-            if(boxMainNewDTO.getFinishOrder()) {
-                BoxMainOriginal boxMainOriginal = new BoxMainOriginal();
-                BeanUtils.copyProperties(entity, boxMainOriginal);
-                this.boxOriginalServiceMapper.insert(boxMainOriginal);
-            }
             if(i != 1) {
                 throw new RuntimeException();
             }
@@ -85,12 +79,6 @@ public class BoxServiceImpl implements BoxService {
                 if(i != 1) {
                     throw new RuntimeException();
                 }
-                // 插入原纪录表
-                if(boxMainNewDTO.getFinishOrder()) {
-                    BoxDetailOriginal boxDetailOriginal = new BoxDetailOriginal();
-                    BeanUtils.copyProperties(boxDetail, boxDetailOriginal);
-                    this.boxDetailOriginalServiceMapper.insert(boxDetailOriginal);
-                }
             }
         }
         // 更新订单状态,只有完成批报告才更新状态
@@ -100,12 +88,50 @@ public class BoxServiceImpl implements BoxService {
             orderMain.setOrderStatus(400);
             orderMain.setEndTime(new Date());
             i = this.orderServiceMapper.updateById(orderMain);
-            // 把原始记录存到原始记录表
-            OrderMain OrderMain2 = this.orderServiceMapper.getOrderListByOrderId(orderMain);
-            OrderMainOriginal orderMainOriginal = new OrderMainOriginal();
-            BeanUtils.copyProperties(OrderMain2, orderMainOriginal);
-            this.orderOriginalServiceMapper.insert(orderMainOriginal);
         }
+//        if(i != 1) {
+//            throw new RuntimeException();
+//        }
+        return i;
+    }
+
+
+    /**
+     * 保存-原始记录
+     * @return 保存成功行数
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Integer saveOriginal(BoxMainNewDTO boxMainNewDTO) {
+        int i = 0;
+        List<BoxMainDTO> boxMainDTO = boxMainNewDTO.getBoxMainDTOList();
+        for (BoxMainDTO entity: boxMainDTO) {
+            // 箱子插入原纪录表
+            BoxMainOriginal boxMainOriginal = new BoxMainOriginal();
+            BeanUtils.copyProperties(entity, boxMainOriginal);
+            i = this.boxOriginalServiceMapper.insert(boxMainOriginal);
+            if(i != 1) {
+                throw new RuntimeException();
+            }
+            List<BoxDetail> boxDetailList = entity.getTurnsInfoList();
+            for (BoxDetail boxDetail : boxDetailList) {
+                boxDetail.setBoxImitateId(entity.getBoxImitateId());
+                // 插入原纪录表
+                BoxDetailOriginal boxDetailOriginal = new BoxDetailOriginal();
+                BeanUtils.copyProperties(boxDetail, boxDetailOriginal);
+                i = this.boxDetailOriginalServiceMapper.insert(boxDetailOriginal);
+                if(i != 1) {
+                    throw new RuntimeException();
+                }
+            }
+        }
+        OrderMain orderMain = new OrderMain();
+        orderMain.setOrderId(boxMainNewDTO.getOrderId());
+        // 把原始记录存到原始记录表
+        OrderMain OrderMain2 = this.orderServiceMapper.getOrderListByOrderId(orderMain);
+        OrderMainOriginal orderMainOriginal = new OrderMainOriginal();
+        BeanUtils.copyProperties(OrderMain2, orderMainOriginal);
+        this.orderOriginalServiceMapper.insert(orderMainOriginal);
         return i;
     }
 
