@@ -8,6 +8,7 @@ import com.middle.ccs.order.entity.dto.ReportListDTO;
 import com.middle.ccs.order.entity.dto.UpdateBoxImitateIdDTO;
 import com.middle.ccs.order.entity.po.BoxMain;
 import com.middle.ccs.order.entity.po.BoxMainOriginal;
+import com.middle.ccs.order.entity.po.OrderParameters;
 import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 import org.apache.ibatis.annotations.Mapper;
@@ -109,4 +110,10 @@ public interface BoxServiceMapper extends BaseMapper<BoxMain> {
      * @param updateBoxImitateIdDTO
      */
     void updateBoxImitateIdBoxDetail(UpdateBoxImitateIdDTO updateBoxImitateIdDTO);
+
+    /**
+     * 查询本地映射的数据
+     * @return
+     */
+    OrderParameters getAccDataByLocal();
 }

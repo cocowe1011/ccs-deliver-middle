@@ -155,8 +155,8 @@ public class BoxServiceImpl implements BoxService {
     }
 
     @Override
-    public ParametersAcc getAccData() {
-        return boxServiceMapper.getAccData();
+    public OrderParameters getAccDataByLocal() {
+        return boxServiceMapper.getAccDataByLocal();
     }
 
     @Override
@@ -193,7 +193,6 @@ public class BoxServiceImpl implements BoxService {
         // 获取一个最新的模拟id
         Integer beginNum = boxServiceMapper.getId();
         String newBoxImitateId = DateUtil.today().replaceAll("-", "").concat(StringUtils.leftPad(String.valueOf(beginNum + 1), 4, "0"));
-        System.out.println(newBoxImitateId);
         // 替换新的模拟id，插入
         boxMainCopy.setBoxImitateId(newBoxImitateId);
         boxMainCopy.setBoxId(null);

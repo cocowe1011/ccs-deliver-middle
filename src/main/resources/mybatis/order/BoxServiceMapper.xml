@@ -237,4 +237,19 @@
     <update id="updateBoxImitateIdBoxDetail">
         update dbo.box_detail set box_imitate_id = #{boxImitateId} where box_imitate_id = #{aboxImitateId}
     </update>
+    <select id="getAccDataByLocal" resultType="com.middle.ccs.order.entity.po.OrderParameters">
+        SELECT
+            top 1
+            energy,
+            beam,
+            speed,
+            power,
+            scan_f,
+            scan_w,
+            pfn,
+            pps,
+            beam_on
+        FROM
+            order_parameters
+    </select>
 </mapper>
