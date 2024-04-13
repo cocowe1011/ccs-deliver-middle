@@ -74,6 +74,33 @@ public class BoxController {
     }
 
     /**
+     * 获取加速器工艺数据
+     * @return 加速器实体类
+     */
+    @RequestMapping("/getAccData")
+    public ResponseResult<ParametersAcc> getAccData() {
+        return ResponseResult.success(boxService.getAccData());
+    }
+
+    /**
+     * 同步加速器工艺数据
+     * @return 加速器实体类
+     */
+    @RequestMapping("/synAccData")
+    public void synAccData() {
+        boxService.synAccData();
+    }
+
+    /**
+     * 恢复加速器工艺数据
+     * @return 加速器实体类
+     */
+    @RequestMapping("/recoverAccData")
+    public ResponseResult<Integer> recoverAccData() {
+        return ResponseResult.success(boxService.recoverAccData());
+    }
+
+    /**
      * 通过订单id获取最新一次箱报告模板
      * @return
      */

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -43,6 +44,11 @@ public class BoxServiceImpl implements BoxService {
 
     @Resource
     private BoxDetailOriginalServiceMapper boxDetailOriginalServiceMapper;
+
+    @Resource
+    private OrderParametersMapper orderParametersMapper;
+
+    private OrderParameters orderParameters = new OrderParameters();
 
     /**
      * 保存
@@ -263,5 +269,44 @@ public class BoxServiceImpl implements BoxService {
         // 更新圈数模拟id
         this.boxServiceMapper.updateBoxImitateIdBoxDetail(updateBoxImitateIdDTO);
         return 1;
+    }
+
+    /**
+     * 同步加速器工艺数据
+     * @return 加速器实体类
+     */
+    @Override
+    public void synAccData() {
+        ParametersAcc parametersAcc = boxServiceMapper.getAccData();
+        if(null != parametersAcc) {
+            BeanUtils.copyProperties(parametersAcc, orderParameters);
+            orderParameters.setId(9);
+            orderParametersMapper.updateById(orderParameters);
+        }
+    }
+
+    /**
+     * 恢复加速器工艺数据
+     * @return 加速器实体类
+     */
+    @Override
+    public Integer recoverAccData() {
+        OrderParameters orderParameters = new OrderParameters();
+        orderParameters.setBeam(0);
+        orderParameters.setBeamOn("0");
+        orderParameters.setEnergy(new BigDecimal(0));
+        orderParameters.setPfn(new BigDecimal(0));
+        orderParameters.setPower(new BigDecimal(0));
+        orderParameters.setPps(0);
+        orderParameters.setScanF(new BigDecimal(0));
+        orderParameters.setScanW(0);
+        orderParameters.setSpeed(new BigDecimal(0));
+        orderParameters.setId(9);
+        return orderParametersMapper.updateById(orderParameters);
+    }
+
+    @Override
+    public ParametersAcc getAccData() {
+        return boxServiceMapper.getAccData();
     }
 }
