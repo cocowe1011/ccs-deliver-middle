@@ -12,7 +12,12 @@
         css_config.judge_load_point,
         css_config.pointj_length,
         css_config.pointk_length,
-        css_config.pointl_length
+        css_config.pointl_length,
+        css_config.speed_one,
+        css_config.speed_two,
+        css_config.new_delay_point_time,
+        css_config.length_one,
+        css_config.length_two
     FROM
         dbo.css_config
 </select>
