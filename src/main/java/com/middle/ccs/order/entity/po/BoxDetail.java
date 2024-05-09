@@ -32,6 +32,12 @@ public class BoxDetail {
     private Long boxId;
 
     /**
+     * 订单id
+     */
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long orderId;
+
+    /**
      * 箱子模拟id
      */
     private String boxImitateId;

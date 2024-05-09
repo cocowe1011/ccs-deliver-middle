@@ -81,6 +81,7 @@ public class BoxServiceImpl implements BoxService {
             List<BoxDetail> boxDetailList = entity.getTurnsInfoList();
             for (BoxDetail boxDetail : boxDetailList) {
                 boxDetail.setBoxImitateId(entity.getBoxImitateId());
+                boxDetail.setOrderId(entity.getOrderId());
                 i = boxDetailServiceMapper.insert(boxDetail);
                 if(i != 1) {
                     throw new RuntimeException();
@@ -209,6 +210,7 @@ public class BoxServiceImpl implements BoxService {
         for (BoxDetail item : boxDetailList) {
             item.setBoxImitateId(newBoxImitateId);
             item.setBoxDetailId(null);
+            item.setOrderId(addBoxDTO.getOrderId());
             i = boxDetailServiceMapper.insert(item);
             if(i != 1) {
                 throw new RuntimeException();
@@ -227,10 +229,12 @@ public class BoxServiceImpl implements BoxService {
     public Integer deleteBox(DeleteBoxDTO deleteBoxDTO) {
         BoxMain boxMain = new BoxMain();
         boxMain.setBoxImitateId(deleteBoxDTO.getBoxImitateId());
+        boxMain.setOrderId(deleteBoxDTO.getOrderId());
         QueryWrapper<BoxMain> wrapper= new QueryWrapper<>(boxMain);
         boxServiceMapper.delete(wrapper);
         BoxDetail boxDetail = new BoxDetail();
         boxDetail.setBoxImitateId(deleteBoxDTO.getBoxImitateId());
+        boxDetail.setOrderId(deleteBoxDTO.getOrderId());
         QueryWrapper<BoxDetail> wrapper2 = new QueryWrapper<>(boxDetail);
         boxDetailServiceMapper.delete(wrapper2);
         return 1;
