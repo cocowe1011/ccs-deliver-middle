@@ -40,6 +40,11 @@ public class DictOrder{
     private String trayFlag;
 
     /**
+     * 拍照模式
+     */
+    private String photoFlag;
+
+    /**
     * 是否翻转，0不翻转，1翻转
     */
     private String revertFlag;

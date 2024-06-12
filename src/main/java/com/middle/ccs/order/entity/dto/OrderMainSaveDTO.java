@@ -39,6 +39,11 @@ public class OrderMainSaveDTO {
     private String trayFlag;
 
     /**
+     * 拍照模式
+     */
+    private String photoFlag;
+
+    /**
     * 批次编号
     */
     @NotEmpty(message = "批次编号不可为空")

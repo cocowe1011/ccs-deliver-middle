@@ -46,6 +46,11 @@ public class OrderMain  {
      * 托盘模式
      */
     private String trayFlag;
+
+    /**
+     * 拍照模式
+     */
+    private String photoFlag;
                 
     /**
     * 批次编号

@@ -45,7 +45,8 @@
             order_main.sx_speed_upper_limit,
             order_main.sx_speed_lower_limit,
             order_main.creator_name,
-            order_main.tray_flag
+            order_main.tray_flag,
+            order_main.photo_flag
         FROM
             dbo.order_main
         where
@@ -440,6 +441,7 @@ SELECT
             order_main.sx_speed_lower_limit,
             order_main.creator_name,
             order_main.tray_flag,
+            order_main.photo_flag,
             order_main.create_time
         FROM
             dbo.order_main
@@ -496,7 +498,8 @@ SELECT
             order_main.sx_speed_upper_limit,
             order_main.sx_speed_lower_limit,
             order_main.creator_name,
-            order_main.tray_flag
+            order_main.tray_flag,
+            order_main.photo_flag
         FROM
             dbo.order_main
         where
