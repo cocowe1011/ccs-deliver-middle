@@ -10,4 +10,5 @@ import lombok.Data;
 @Data
 public class DeleteBoxDTO {
     private String boxImitateId;
+    private Long orderId;
 }

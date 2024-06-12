@@ -50,11 +50,6 @@ public class CssConfig {
     private String judgeLoadPoint;
 
     /**
-     * 延迟时间
-     */
-    private String delayPointTime;
-
-    /**
      * J
      */
     private BigDecimal pointjLength;
@@ -70,8 +65,34 @@ public class CssConfig {
     private BigDecimal pointlLength;
 
     /**
+     * V1比例系数
+     */
+    private BigDecimal speedOne;
+
+    /**
+     * V2比例系数
+     */
+    private BigDecimal speedTwo;
+
+    /**
+     * X1长度
+     */
+    private BigDecimal lengthOne;
+
+    /**
+     * X2长度
+     */
+    private BigDecimal lengthTwo;
+
+    /**
+     * 延迟时间
+     */
+    private Integer newDelayPointTime;
+
+
+    /**
      * 中英文配置
      */
     private String languageSet;
-    
+
 }

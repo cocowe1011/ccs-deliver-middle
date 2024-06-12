@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -43,6 +44,11 @@ public class BoxServiceImpl implements BoxService {
 
     @Resource
     private BoxDetailOriginalServiceMapper boxDetailOriginalServiceMapper;
+
+    @Resource
+    private OrderParametersMapper orderParametersMapper;
+
+    private OrderParameters orderParameters = new OrderParameters();
 
     /**
      * 保存
@@ -75,6 +81,7 @@ public class BoxServiceImpl implements BoxService {
             List<BoxDetail> boxDetailList = entity.getTurnsInfoList();
             for (BoxDetail boxDetail : boxDetailList) {
                 boxDetail.setBoxImitateId(entity.getBoxImitateId());
+                boxDetail.setOrderId(entity.getOrderId());
                 i = boxDetailServiceMapper.insert(boxDetail);
                 if(i != 1) {
                     throw new RuntimeException();
@@ -155,8 +162,8 @@ public class BoxServiceImpl implements BoxService {
     }
 
     @Override
-    public ParametersAcc getAccData() {
-        return boxServiceMapper.getAccData();
+    public OrderParameters getAccDataByLocal() {
+        return boxServiceMapper.getAccDataByLocal();
     }
 
     @Override
@@ -193,7 +200,6 @@ public class BoxServiceImpl implements BoxService {
         // 获取一个最新的模拟id
         Integer beginNum = boxServiceMapper.getId();
         String newBoxImitateId = DateUtil.today().replaceAll("-", "").concat(StringUtils.leftPad(String.valueOf(beginNum + 1), 4, "0"));
-        System.out.println(newBoxImitateId);
         // 替换新的模拟id，插入
         boxMainCopy.setBoxImitateId(newBoxImitateId);
         boxMainCopy.setBoxId(null);
@@ -204,6 +210,7 @@ public class BoxServiceImpl implements BoxService {
         for (BoxDetail item : boxDetailList) {
             item.setBoxImitateId(newBoxImitateId);
             item.setBoxDetailId(null);
+            item.setOrderId(addBoxDTO.getOrderId());
             i = boxDetailServiceMapper.insert(item);
             if(i != 1) {
                 throw new RuntimeException();
@@ -222,10 +229,12 @@ public class BoxServiceImpl implements BoxService {
     public Integer deleteBox(DeleteBoxDTO deleteBoxDTO) {
         BoxMain boxMain = new BoxMain();
         boxMain.setBoxImitateId(deleteBoxDTO.getBoxImitateId());
+        boxMain.setOrderId(deleteBoxDTO.getOrderId());
         QueryWrapper<BoxMain> wrapper= new QueryWrapper<>(boxMain);
         boxServiceMapper.delete(wrapper);
         BoxDetail boxDetail = new BoxDetail();
         boxDetail.setBoxImitateId(deleteBoxDTO.getBoxImitateId());
+        boxDetail.setOrderId(deleteBoxDTO.getOrderId());
         QueryWrapper<BoxDetail> wrapper2 = new QueryWrapper<>(boxDetail);
         boxDetailServiceMapper.delete(wrapper2);
         return 1;
@@ -264,5 +273,44 @@ public class BoxServiceImpl implements BoxService {
         // 更新圈数模拟id
         this.boxServiceMapper.updateBoxImitateIdBoxDetail(updateBoxImitateIdDTO);
         return 1;
+    }
+
+    /**
+     * 同步加速器工艺数据
+     * @return 加速器实体类
+     */
+    @Override
+    public void synAccData() {
+        ParametersAcc parametersAcc = boxServiceMapper.getAccData();
+        if(null != parametersAcc) {
+            BeanUtils.copyProperties(parametersAcc, orderParameters);
+            orderParameters.setId(9);
+            orderParametersMapper.updateById(orderParameters);
+        }
+    }
+
+    /**
+     * 恢复加速器工艺数据
+     * @return 加速器实体类
+     */
+    @Override
+    public Integer recoverAccData() {
+        OrderParameters orderParameters = new OrderParameters();
+        orderParameters.setBeam(0);
+        orderParameters.setBeamOn("0");
+        orderParameters.setEnergy(new BigDecimal(0));
+        orderParameters.setPfn(new BigDecimal(0));
+        orderParameters.setPower(new BigDecimal(0));
+        orderParameters.setPps(0);
+        orderParameters.setScanF(new BigDecimal(0));
+        orderParameters.setScanW(0);
+        orderParameters.setSpeed(new BigDecimal(0));
+        orderParameters.setId(9);
+        return orderParametersMapper.updateById(orderParameters);
+    }
+
+    @Override
+    public ParametersAcc getAccData() {
+        return boxServiceMapper.getAccData();
     }
 }

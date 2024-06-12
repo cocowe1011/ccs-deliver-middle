@@ -4,6 +4,7 @@ import com.middle.ccs.hander.ResponseResult;
 import com.middle.ccs.order.entity.dto.*;
 import com.middle.ccs.order.entity.po.BoxMain;
 import com.middle.ccs.order.entity.po.BoxMainOriginal;
+import com.middle.ccs.order.entity.po.OrderParameters;
 import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 import com.middle.ccs.order.service.BoxService;
@@ -67,9 +68,36 @@ public class BoxController {
      * 获取加速器工艺数据
      * @return 加速器实体类
      */
+    @RequestMapping("/getAccDataByLocal")
+    public ResponseResult<OrderParameters> getAccDataByLocal() {
+        return ResponseResult.success(boxService.getAccDataByLocal());
+    }
+
+    /**
+     * 获取加速器工艺数据
+     * @return 加速器实体类
+     */
     @RequestMapping("/getAccData")
     public ResponseResult<ParametersAcc> getAccData() {
         return ResponseResult.success(boxService.getAccData());
+    }
+
+    /**
+     * 同步加速器工艺数据
+     * @return 加速器实体类
+     */
+    @RequestMapping("/synAccData")
+    public void synAccData() {
+        boxService.synAccData();
+    }
+
+    /**
+     * 恢复加速器工艺数据
+     * @return 加速器实体类
+     */
+    @RequestMapping("/recoverAccData")
+    public ResponseResult<Integer> recoverAccData() {
+        return ResponseResult.success(boxService.recoverAccData());
     }
 
     /**

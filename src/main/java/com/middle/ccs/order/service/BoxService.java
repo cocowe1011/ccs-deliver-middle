@@ -4,6 +4,7 @@ package com.middle.ccs.order.service;
 import com.middle.ccs.order.entity.dto.*;
 import com.middle.ccs.order.entity.po.BoxMain;
 import com.middle.ccs.order.entity.po.BoxMainOriginal;
+import com.middle.ccs.order.entity.po.OrderParameters;
 import com.middle.ccs.order.entity.po.ParametersAcc;
 import com.middle.ccs.order.entity.vo.BoxDetailVO;
 
@@ -47,7 +48,7 @@ public interface BoxService {
      * 获取acc加速器数据
      * @return
      */
-    ParametersAcc getAccData();
+    OrderParameters getAccDataByLocal();
 
     /**
      * 获取最新一次的箱报告
@@ -96,4 +97,22 @@ public interface BoxService {
      * @return 出参
      */
     Integer updateBoxImitateId(UpdateBoxImitateIdDTO updateBoxImitateIdDTO);
+
+    /**
+     * 同步加速器工艺数据
+     * @return 加速器实体类
+     */
+    void synAccData();
+
+    /**
+     * 恢复加速器工艺数据
+     * @return 加速器实体类
+     */
+    Integer recoverAccData();
+
+    /**
+     * 获取acc加速器数据
+     * @return
+     */
+    ParametersAcc getAccData();
 }
