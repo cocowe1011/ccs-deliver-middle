@@ -12,7 +12,8 @@
         css_config.judge_load_point,
         css_config.pointj_length,
         css_config.pointk_length,
-        css_config.pointl_length
+        css_config.pointl_length,
+        css_config.language_set
     FROM
         dbo.css_config
 </select>

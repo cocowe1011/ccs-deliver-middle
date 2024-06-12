@@ -68,5 +68,10 @@ public class CssConfig {
      * L
      */
     private BigDecimal pointlLength;
+
+    /**
+     * 中英文配置
+     */
+    private String languageSet;
     
 }
