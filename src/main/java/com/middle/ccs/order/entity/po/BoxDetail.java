@@ -12,7 +12,7 @@ import lombok.Data;
  * @classDesc: 实体类:(BoxDetail)
  * @author: makejava
  * @date: 2023-06-22 00:05:18
- * @copyright 众阳健康
+ * @copyright 作者
  */
 @Data
 @TableName("box_detail")

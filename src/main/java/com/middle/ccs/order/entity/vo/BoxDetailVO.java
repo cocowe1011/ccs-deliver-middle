@@ -12,7 +12,7 @@ import java.util.Date;
  * @classDesc: 实体类:(BoxMain)
  * @author: makejava
  * @date: 2023-06-22 00:04:43
- * @copyright 众阳健康
+ * @copyright 作者
  */
 @Data
 public class BoxDetailVO {

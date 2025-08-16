@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * @classDesc: 实体类:(Parameters)
  * @author: makejava
  * @date: 2023-07-10 21:31:51
- * @copyright 众阳健康
+ * @copyright 作者
  */
 @Data
 @TableName("parameters")
