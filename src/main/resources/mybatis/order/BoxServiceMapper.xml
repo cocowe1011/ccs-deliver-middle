@@ -4,10 +4,9 @@
 
     <select id="getId" resultType="java.lang.Integer">
     <![CDATA[
-        SELECT COUNT(*) AS boxnum
+        SELECT ISNULL(MAX(TRY_CAST(RIGHT(box_imitate_id, 4) AS INT)), 0) AS boxnum
         FROM dbo.box_main
-        WHERE create_time >= CAST(GETDATE() AS DATE)
-          AND create_time <  DATEADD(day, 1, CAST(GETDATE() AS DATE))
+        WHERE box_imitate_id LIKE CONVERT(varchar(8), GETDATE(), 112) + '%'
         ]]>
 </select>
     <select id="getBoxReport" resultType="com.middle.ccs.order.entity.vo.BoxDetailVO" parameterType="com.middle.ccs.order.entity.dto.ReportListDTO">
